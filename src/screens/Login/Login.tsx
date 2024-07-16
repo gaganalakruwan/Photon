@@ -25,7 +25,7 @@ const Login: React.FC<StackScreenProps<StackParameterList, 'LOGIN'>> = () => {
 
   const navigation = useNavigation();
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex:1}}>
       <View style={styles.container}>
         <InputText
           label="Email"

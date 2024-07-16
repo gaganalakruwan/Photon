@@ -21,12 +21,10 @@ const InputText: React.FC<InputTextProps> = ({
       <Text style={styles.label}>{label}</Text>
       <TextInput
         style={styles.input}
-        // placeholder={placeHolder}
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
       />
-      <View style={styles.underline} />
     </View>
   );
 };
