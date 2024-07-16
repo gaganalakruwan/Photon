@@ -1,26 +1,26 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import ActionButton from '../../components/ActionButton/ActionButton';
-import {NAVIGATION_STACK} from '../../constants/routs';
-import {StackScreenProps} from '@react-navigation/stack';
-import {StackParameterList} from '../../navigation/type';
+import React, { useEffect } from 'react';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { StackScreenProps } from '@react-navigation/stack';
+import { StackParameterList } from '../../navigation/type';
+import styles from './style'; // Import styles from style.tsx
 
-const Splash: React.FC<StackScreenProps<StackParameterList, 'SPLASH'>> = ({
-  navigation,
-}) => {
+const Splash: React.FC<StackScreenProps<StackParameterList, 'SPLASH'>> = ({ navigation }) => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigation.navigate('MAIN_AUTH');
+    }, 2000);
+
+    return () => clearTimeout(timer); // Cleanup the timer
+  }, [navigation]);
+
   return (
-    <SafeAreaView
-      style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text style={{color: 'black'}}>Splash</Text>
-      <ActionButton
-        title="Login"
-        onPress={() => navigation.navigate('MAIN_AUTH')}
-      />
+    <SafeAreaView style={styles.container}>
+      <View style={styles.logoContainer}>
+        <Image source={require('../../assets/logo2.png')} style={styles.logo} />
+      </View>
     </SafeAreaView>
   );
 };
 
 export default Splash;
-
-const styles = StyleSheet.create({});
