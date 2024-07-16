@@ -25,7 +25,7 @@ const Login: React.FC<StackScreenProps<StackParameterList, 'LOGIN'>> = () => {
 
   const navigation = useNavigation();
   return (
-    <SafeAreaView style={{flex:1}}>
+    <SafeAreaView style={{flex: 1}}>
       <View style={styles.container}>
         <InputText
           label="Email"
@@ -40,12 +40,12 @@ const Login: React.FC<StackScreenProps<StackParameterList, 'LOGIN'>> = () => {
           secureTextEntry
           placeHolder={''}
         />
+        <ActionButton
+          title={'Login'}
+          onPress={() => navigation.navigate('MAIN_HOME' as never)}
+          containerStyle={{alignSelf: 'center',marginTop:50}}
+        />
       </View>
-      <ActionButton
-        title={'Login'}
-        onPress={() => navigation.navigate('MAIN_HOME' as never)}
-        containerStyle={{width: 300}}
-      />
     </SafeAreaView>
   );
 };
