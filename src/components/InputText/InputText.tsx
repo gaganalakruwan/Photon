@@ -1,14 +1,32 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-
-const InputText = () => {
-  return (
-    <View>
-      <Text>InputText</Text>
-    </View>
-  )
+import {Text, View, TextInput} from 'react-native';
+import React from 'react';
+import styles from './style';
+interface InputTextProps {
+  label: string;
+  value: string;
+  // placeHolder: string;
+  onChangeText: (text: string) => void;
+  secureTextEntry?: boolean;
 }
 
-export default InputText
+const InputText: React.FC<InputTextProps> = ({
+  label,
+  // placeHolder,
+  value,
+  onChangeText,
+  secureTextEntry = false,
+}) => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.label}>{label}</Text>
+      <TextInput
+        style={styles.input}
+        value={value}
+        onChangeText={onChangeText}
+        secureTextEntry={secureTextEntry}
+      />
+    </View>
+  );
+};
 
-const styles = StyleSheet.create({})
+export default InputText;
