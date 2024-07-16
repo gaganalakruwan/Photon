@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   background: {
@@ -7,13 +7,13 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor:'white'
   },
   logoContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 20,
+    // marginBottom: 20,
+    backgroundColor: '#E2F2E9',
   },
   logo: {
     width: 150,
@@ -25,33 +25,35 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 20,
-    width: '200%',  
+    borderBottomRightRadius:20,
+    borderBottomLeftRadius:20,
+    backgroundColor:'#E2F2E9'
   },
   tabContentContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingLeft :250 ,
+    paddingLeft: 250,
   },
-  tab: {    alignItems : "center" ,
+  tab: {
+    alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 30,
-    marginHorizontal: 10,  // Add margin to space out the tabs
+    paddingVertical: 10,
+    marginHorizontal: 20, // Add margin to space out the tabs
   },
   tabText: {
     color: 'black',
     fontSize: 30,
-    paddingRight:30,
+    marginHorizontal:20
   },
   activeTabLine: {
     height: 5,
-    alignItems : "center",
-    backgroundColor: '#008080',  // Use a color that matches your design
-    width: '74%',
-    marginTop: 10,
+    alignItems: 'center',
+    backgroundColor: '#008080', // Use a color that matches your design
+    width: '100%',
+    position:'absolute',
+    bottom:1
   },
 });
 
 export default styles;
-
-   
