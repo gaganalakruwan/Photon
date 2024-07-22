@@ -10,6 +10,7 @@ import { Platform, TouchableOpacity } from 'react-native';
 import Home from '../screens/Home/Home';
 import Chat from '../screens/Chat/Chat';
 import Profile from '../screens/Profile/Profile';
+import Start1 from '../screens/Starting/Start1';
 const AuthStack = createStackNavigator<StackParameterList>();
 const Tab = createBottomTabNavigator();
 
@@ -29,6 +30,14 @@ const AuthStackNavigator = () => {
       <AuthStack.Screen
         name={NAVIGATION_STACK.MAIN_HOME as keyof StackParameterList}
         component={NewBottomTab}
+      />
+      <AuthStack.Screen
+        name={NAVIGATION_STACK.MAIN_HOME as keyof StackParameterList}
+        component={NewBottomTab}
+      />
+      <AuthStack.Screen
+        name={NAVIGATION_STACK.START1 as keyof StackParameterList}  // Added START1
+        component={Start1}
       />
     </AuthStack.Navigator>
   );

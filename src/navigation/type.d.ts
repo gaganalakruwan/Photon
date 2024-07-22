@@ -10,4 +10,5 @@ export declare type StackParameterList = {
   SIGN_UP:undefined;
   MAIN_AUTH:undefined;
   PROFILE:undefined;
+  START1: undefined;
 };

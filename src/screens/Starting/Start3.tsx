@@ -1,0 +1,51 @@
+// App.js (or StartingPage.js)
+import React, { useState } from 'react';
+import { View, Text, Image } from 'react-native';
+import { StackScreenProps } from '@react-navigation/stack';
+import styles from './style';  
+import ActionButton from '../../components/ActionButton/ActionButton'; 
+
+type RootStackParamList = {
+  StartingPage: undefined;
+  Screen2: undefined;
+};
+
+type Props = StackScreenProps<RootStackParamList, 'StartingPage'>;
+
+const StartingPage: React.FC<Props> = ({ navigation }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handleNext = () => {
+    if (currentPage < 4) {
+      setCurrentPage(currentPage + 1);
+    } else {
+      navigation.navigate('Screen4'); 
+    }
+  };
+
+  const getLineStyle = (page: number) => {
+    return currentPage === page ? styles.shortLine : styles.longLine;
+  };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.imageContainer}>
+        <Image source={require('../../assets/intro/intro3.jpg')} style={styles.image} />
+      </View>
+      <Text style={styles.heading}>Your service requests and updates at your fingertips</Text>
+      <View style={styles.linesContainer}>
+        <View style={getLineStyle(1)} />
+        <View style={getLineStyle(2)} />
+        <View style={getLineStyle(3)} />
+        <View style={getLineStyle(4)} />
+      </View>
+      <ActionButton
+        title={'Next'}
+        onPress={handleNext}
+        containerStyle={styles.actionButton}
+      />
+    </View>
+  );
+};
+
+export default StartingPage;

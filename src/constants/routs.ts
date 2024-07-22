@@ -1,3 +1,5 @@
+import StartingPage from "../screens/Starting/Start1";
+
 export const NAVIGATION_STACK = {
   SPLASH: 'SPLASH',
   LOGIN: 'LOGIN',
@@ -8,4 +10,5 @@ export const NAVIGATION_STACK = {
   NOTIFICATION: 'NOTIFICATION',
   SIGN_UP: 'SIGN_UP',
   PROFILE: 'PROFILE',
+  START1 : 'START1'
 };
