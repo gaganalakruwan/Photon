@@ -1,52 +1,99 @@
 import {
+  Animated,
   SafeAreaView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {Icon} from 'react-native-vector-icons/Icon';
+import styles from './style';
+import Header from '../../components/Header/Header';
+import InputText from '../../components/InputTextSearch/InputText';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import Categories from '../Categories/Categories';
+import NewProduct from '../NewProduct/NewProduct';
+const Tab = createMaterialTopTabNavigator();
 
 const Home = () => {
+  const [search, setSearch] = useState('');
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView style={styles.mainContainer}>
+      <Header isMenu isProfile />
       <View style={styles.container}>
-        <View style={styles.header}>
-          <TouchableOpacity>
-            <Icon name="menu" size={30} color="black" style={styles.menuIcon} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Icon
-              name="person"
-              size={30}
-              color="black"
-              style={styles.profileIcon}
-            />
-          </TouchableOpacity>
-        </View>
         <Text style={styles.welcomeText}>Welcome to Photon Technology</Text>
-        <View style={styles.searchContainer}>
-          <Icon
-            name="search"
-            size={20}
-            color="gray"
-            style={styles.searchIcon}
+        <InputText
+          value={search}
+          onChangeText={setSearch}
+          placeHolder="Search"
+        />
+        <Tab.Navigator
+          tabBar={({state, descriptors, navigation: tabNav, position}) => (
+            <View style={styles.tabContainer}>
+              {state.routes.map((route, index) => {
+                const {options} = descriptors[route.key];
+                const label =
+                  options.tabBarLabel !== undefined
+                    ? options.tabBarLabel
+                    : options.title !== undefined
+                    ? options.title
+                    : route.name;
+
+                const isFocused = state.index === index;
+
+                const onPress = () => {
+                  const event = tabNav.emit({
+                    type: 'tabPress',
+                    target: route.key,
+                    canPreventDefault: true,
+                  });
+                  if (!isFocused && !event.defaultPrevented) {
+                    tabNav.navigate(route.name);
+                  }
+                };
+
+                const inputRange = state.routes.map((_, i) => i);
+                const opacity = position.interpolate({
+                  inputRange,
+                  outputRange: inputRange.map(i => (i === index ? 1 : 1)),
+                });
+
+                return (
+                  <TouchableOpacity
+                    key={route.key}
+                    onPress={onPress}
+                    style={styles.tab}>
+                    <Animated.Text style={[styles.tabText, {opacity}]}>
+                      {label}
+                    </Animated.Text>
+                    {isFocused && <View style={styles.activeTabLine} />}
+                  </TouchableOpacity>
+                );
+              })}
+            </View>
+          )}
+          sceneContainerStyle={{backgroundColor: '#FFFFFF'}}
+          initialRouteName="Categories"
+          backBehavior="initialRoute"
+          screenOptions={{
+            tabBarScrollEnabled: true,
+            swipeEnabled: false,
+          }}>
+          <Tab.Screen
+            name="Categories"
+            component={Categories}
+            options={{tabBarLabel: 'Categories'}}
           />
-          <TextInput
-            style={styles.searchInput}
-            placeholder="Search"
-            placeholderTextColor="gray"
+          <Tab.Screen
+            name="NewProducts"
+            component={NewProduct}
+            options={{tabBarLabel: 'NewProducts'}}
           />
-        </View>
+        </Tab.Navigator>
       </View>
-      <Tab.Navigator>
-        <Tab.Screen name="Categories" component={Categories} />
-        <Tab.Screen name="New Products" component={NewProduct} />
-      </Tab.Navigator>
     </SafeAreaView>
   );
+};
 
 export default Home;
-
-const styles = StyleSheet.create({});
