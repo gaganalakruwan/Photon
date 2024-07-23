@@ -43,7 +43,7 @@ const StartingPage4: React.FC<Props> = ({ navigation }) => {
       <SafeAreaView style={{flex: 0.7}}></SafeAreaView>
       <ActionButton
         title={'Next'}
-        onPress={() => navigation.navigate('APP' as never)} 
+        onPress={() => navigation.navigate('MAIN_HOME' as never)} 
       />
     </View>
   );
