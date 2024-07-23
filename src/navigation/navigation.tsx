@@ -10,7 +10,14 @@ import { Platform, TouchableOpacity } from 'react-native';
 import Home from '../screens/Home/Home';
 import Chat from '../screens/Chat/Chat';
 import Profile from '../screens/Profile/Profile';
-import Start1 from '../screens/Starting/Start1';
+
+import StartingPage from '../screens/Starting/Start1';
+import StartingPage1 from '../screens/Starting/Start1';
+import StartingPage2 from '../screens/Starting/Start2';
+import StartingPage3 from '../screens/Starting/Start3';
+import StartingPage4 from '../screens/Starting/Start4';
+
+import App from '../../App';
 const AuthStack = createStackNavigator<StackParameterList>();
 const Tab = createBottomTabNavigator();
 
@@ -27,18 +34,38 @@ const AuthStackNavigator = () => {
         name={NAVIGATION_STACK.MAIN_AUTH as keyof StackParameterList}
         component={MainAuth}
       />
-      <AuthStack.Screen
-        name={NAVIGATION_STACK.MAIN_HOME as keyof StackParameterList}
-        component={NewBottomTab}
-      />
+
       <AuthStack.Screen
         name={NAVIGATION_STACK.MAIN_HOME as keyof StackParameterList}
         component={NewBottomTab}
       />
       <AuthStack.Screen
         name={NAVIGATION_STACK.START1 as keyof StackParameterList}  // Added START1
-        component={Start1}
+        component={StartingPage1}
       />
+
+      <AuthStack.Screen
+        name={NAVIGATION_STACK.START2 as keyof StackParameterList}  // Added START2
+        component={StartingPage2}
+      />
+
+      <AuthStack.Screen
+        name={NAVIGATION_STACK.START3 as keyof StackParameterList}  // Added START1
+        component={StartingPage3}
+      />
+
+      <AuthStack.Screen
+        name={NAVIGATION_STACK.START4 as keyof StackParameterList}  // Added START2
+        component={StartingPage4}
+      />
+
+     
+
+   
+
+
+
+
     </AuthStack.Navigator>
   );
 };
