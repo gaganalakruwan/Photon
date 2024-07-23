@@ -40,6 +40,10 @@ const Home = () => {
           />
         </View>
       </View>
+      <Tab.Navigator>
+        <Tab.Screen name="Categories" component={Categories} />
+        <Tab.Screen name="New Products" component={NewProduct} />
+      </Tab.Navigator>
     </SafeAreaView>
   );
 
