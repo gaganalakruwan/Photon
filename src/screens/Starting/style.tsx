@@ -23,6 +23,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     marginBottom: 20,
+    
   },
   shortLine: {
     width: 20,
@@ -50,4 +51,31 @@ export default StyleSheet.create({
     height: '100%',
     resizeMode: 'contain',
   },
+  safeArea: {
+    flex: 1,
+  },
+  text: {
+    color : 'black' ,
+    fontWeight: 'bold',
+    fontSize : 20,
+    textAlign : 'center'
+  } ,
+
+
+  // container: {
+  //   flexDirection: 'row',
+  //   justifyContent: 'center',
+  //   marginVertical: 20,
+  // },
+  // line: {
+  //   height: 4,
+  //   width: 50,
+  //   backgroundColor: '#008CBA', // Change this to your preferred color
+  //   marginHorizontal: 5,
+  //   borderRadius: 2,
+  // },
+  // shortLine: {
+  //   width: 20,
+  //   backgroundColor: '#008CBA',
+  // },
 });

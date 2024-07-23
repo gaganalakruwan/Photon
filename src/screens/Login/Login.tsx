@@ -31,22 +31,20 @@ const Login: React.FC<StackScreenProps<StackParameterList, 'LOGIN'>> = () => {
           label="Email"
           value={email}
           onChangeText={setEmail}
-          placeHolder={''}
+          
         />
         <InputText
           label="Password"
           value={password}
           onChangeText={setPassword}
           secureTextEntry
-          placeHolder={''}
+          
         />
         <ActionButton
-  title={'Login'}
-  onPress={() => navigation.navigate('START1' as never)}  // Changed 'MAIN_HOME' to 'START1'
-  containerStyle={{alignSelf: 'center',marginTop:50}}
-/>
-
-
+          title={'Login'}
+          onPress={() => navigation.navigate('START1' as never)} // Changed 'MAIN_HOME' to 'START1'
+          containerStyle={{alignSelf: 'center', marginTop: 50}}
+        />
       </View>
     </SafeAreaView>
   );

@@ -1,6 +1,6 @@
 // App.js (or StartingPage.js)
 import React, { useState } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, SafeAreaView } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import styles from './style';  
 import ActionButton from '../../components/ActionButton/ActionButton';  
@@ -12,14 +12,14 @@ type RootStackParamList = {
 
 type Props = StackScreenProps<RootStackParamList, 'StartingPage'>;
 
-const StartingPage: React.FC<Props> = ({ navigation }) => {
+const StartingPage4: React.FC<Props> = ({ navigation }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const handleNext = () => {
     if (currentPage < 4) {
       setCurrentPage(currentPage + 1);
     } else {
-      //navigation.navigate('Screen4');     
+     // navigation.navigate('Screen4'); 
     }
   };
 
@@ -30,22 +30,23 @@ const StartingPage: React.FC<Props> = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-        <Image source={require('../../assets/intro/intro4.jpg')} style={styles.image} />
+        <Image source={require('../../assets/intro/intro4.png')} style={styles.image} />
       </View>
-      <Text style={styles.heading}>Your service requests and updates at your fingertips</Text>
+      <Text style={styles.text}>Efficiently manage overdue payments and reminders</Text>
+      <SafeAreaView style={{flex: 0.05}}></SafeAreaView>
       <View style={styles.linesContainer}>
         <View style={getLineStyle(1)} />
         <View style={getLineStyle(2)} />
         <View style={getLineStyle(3)} />
         <View style={getLineStyle(4)} />
       </View>
+      <SafeAreaView style={{flex: 0.7}}></SafeAreaView>
       <ActionButton
         title={'Next'}
-        onPress={handleNext}
-        containerStyle={styles.actionButton}
+        onPress={() => navigation.navigate('APP' as never)} 
       />
     </View>
   );
 };
 
-export default StartingPage;
+export default StartingPage4;
