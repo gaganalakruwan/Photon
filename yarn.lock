@@ -2611,11 +2611,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-navigation/bottom-tabs@npm:^6.6.0":
-  version: 6.6.0
-  resolution: "@react-navigation/bottom-tabs@npm:6.6.0"
+"@react-navigation/bottom-tabs@npm:^6.6.1":
+  version: 6.6.1
+  resolution: "@react-navigation/bottom-tabs@npm:6.6.1"
   dependencies:
-    "@react-navigation/elements": ^1.3.30
+    "@react-navigation/elements": ^1.3.31
     color: ^4.2.3
     warn-once: ^0.1.0
   peerDependencies:
@@ -2624,11 +2624,11 @@ __metadata:
     react-native: "*"
     react-native-safe-area-context: ">= 3.0.0"
     react-native-screens: ">= 3.0.0"
-  checksum: d0d1c8244b0cf86d9ccab134e1ed75c7d6498669730ac91d04597efe682525742ad3497b080e23e2dd8683aa94e884e18054d8d52dc58b61405d5bd72c731895
+  checksum: 07d6da4b91d7f372b67bcb9f1ff97fba96f1fe226bd95d43d7877362ce71d99c6eebe9ca41d84ea8828f055713386262e089a8207a6c849f33bae49b4df4b196
   languageName: node
   linkType: hard
 
-"@react-navigation/core@npm:^6.4.16":
+"@react-navigation/core@npm:^6.4.17":
   version: 6.4.17
   resolution: "@react-navigation/core@npm:6.4.17"
   dependencies:
@@ -2644,7 +2644,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-navigation/elements@npm:^1.3.30, @react-navigation/elements@npm:^1.3.31":
+"@react-navigation/elements@npm:^1.3.31":
   version: 1.3.31
   resolution: "@react-navigation/elements@npm:1.3.31"
   peerDependencies:
@@ -2672,18 +2672,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-navigation/native@npm:^6.1.17":
-  version: 6.1.17
-  resolution: "@react-navigation/native@npm:6.1.17"
+"@react-navigation/native@npm:^6.1.18":
+  version: 6.1.18
+  resolution: "@react-navigation/native@npm:6.1.18"
   dependencies:
-    "@react-navigation/core": ^6.4.16
+    "@react-navigation/core": ^6.4.17
     escape-string-regexp: ^4.0.0
     fast-deep-equal: ^3.1.3
     nanoid: ^3.1.23
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: eeff357c766f72b003ed07093a7e3b14e42fd6f488f9a3200f52e4eb307eb1bb330acb2200dca45696c0dc788a417255047915e41b216a75f34072805d2ecc65
+  checksum: 82aeea67723f5dc41403e1c260f04942696f6cde95e30629c383521c3837d18d2d5c21bd78f0ade50beb81ac5edca2d7d38980dcd3a79e3acc86f45d0c09a4b8
   languageName: node
   linkType: hard
 
@@ -2773,6 +2773,120 @@ __metadata:
   dependencies:
     "@sinonjs/commons": ^3.0.0
   checksum: 614d30cb4d5201550c940945d44c9e0b6d64a888ff2cd5b357f95ad6721070d6b8839cd10e15b76bf5e14af0bcc1d8f9ec00d49a46318f1f669a4bec1d7f3148
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-base@npm:~26.2.4":
+  version: 26.2.4
+  resolution: "@syncfusion/ej2-base@npm:26.2.4"
+  dependencies:
+    "@syncfusion/ej2-icons": ~26.2.4
+  bin:
+    syncfusion-license: bin/syncfusion-license.js
+  checksum: 13b720f1a1989004c1f33994903f4815ee2b6c86626c23b58712f32218bef2e461b435fe7ff4cef989c6a792fc4d5208ca5c4c3bf8a591911c099655e1cf9d28
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-buttons@npm:~26.2.4":
+  version: 26.2.4
+  resolution: "@syncfusion/ej2-buttons@npm:26.2.4"
+  dependencies:
+    "@syncfusion/ej2-base": ~26.2.4
+  checksum: dd7cc51919d873802d45653543db3fb6a4f921671bf38083a25a61346e21e6ee34c6e9d19001ca44f31da346676f4fcc1d2bde6555fab5893af1f0e69b34b2fb
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-data@npm:~26.2.4":
+  version: 26.2.4
+  resolution: "@syncfusion/ej2-data@npm:26.2.4"
+  dependencies:
+    "@syncfusion/ej2-base": ~26.2.4
+  checksum: 8e2f9df6c65213e4ed42f4b6664337d0f9c3099aadf6027499768f918c83b576f98f33e28df93e37400fea1233f0e81eb37eef28e313baede6b0c4959468980a
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-icons@npm:~26.2.4":
+  version: 26.2.4
+  resolution: "@syncfusion/ej2-icons@npm:26.2.4"
+  checksum: 139ca8e4bfa9ea8cdb230c784a52c4656b00dbe0a3bd467d55dc06ff8ab9e280eaed6c68bba7d7698ca4534fa089c1c8680c29cd77d8bfe6611b4e6d32555eb5
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-inputs@npm:~26.2.4":
+  version: 26.2.4
+  resolution: "@syncfusion/ej2-inputs@npm:26.2.4"
+  dependencies:
+    "@syncfusion/ej2-base": ~26.2.4
+    "@syncfusion/ej2-buttons": ~26.2.4
+    "@syncfusion/ej2-popups": ~26.2.4
+    "@syncfusion/ej2-splitbuttons": ~26.2.4
+  checksum: d5b73c22d9a8c3da9eb7f6145b3c44410059248f24ca7410cfe0a7f5e6bf8a0f02f3941196efb62d06b131261e16cbdd586c897203012afd6cc318d9c11fee4c
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-lists@npm:~26.2.4":
+  version: 26.2.4
+  resolution: "@syncfusion/ej2-lists@npm:26.2.4"
+  dependencies:
+    "@syncfusion/ej2-base": ~26.2.4
+    "@syncfusion/ej2-buttons": ~26.2.4
+    "@syncfusion/ej2-data": ~26.2.4
+    "@syncfusion/ej2-popups": ~26.2.4
+  checksum: 15b546435e4aec17251567092ef15c7f24718f7152e98f4623e420b9cac06fd82fe9fe7755f930b147c0d696f81dc75c8275b8df7d82df4366133f84f02fa27c
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-navigations@npm:26.2.4":
+  version: 26.2.4
+  resolution: "@syncfusion/ej2-navigations@npm:26.2.4"
+  dependencies:
+    "@syncfusion/ej2-base": ~26.2.4
+    "@syncfusion/ej2-buttons": ~26.2.4
+    "@syncfusion/ej2-data": ~26.2.4
+    "@syncfusion/ej2-inputs": ~26.2.4
+    "@syncfusion/ej2-lists": ~26.2.4
+    "@syncfusion/ej2-popups": ~26.2.4
+  checksum: 0beacd29b3c300b31ea937c2882861559c31863bddd6850ca0e09932063d42a48add17e5227a963b692f167f35d56cbf1cae4a2a775151be8fc6623228c1b871
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-popups@npm:~26.2.4":
+  version: 26.2.4
+  resolution: "@syncfusion/ej2-popups@npm:26.2.4"
+  dependencies:
+    "@syncfusion/ej2-base": ~26.2.4
+    "@syncfusion/ej2-buttons": ~26.2.4
+  checksum: 4c74c4188433b9cd30abc6ab7c76555b1d36be4544d48dd1ac0db61ebec1a34bc7229e261cbd5b5762f380f69b202bfe3b06b5930954be6ff1fedd02021b936c
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-react-base@npm:~26.2.4":
+  version: 26.2.4
+  resolution: "@syncfusion/ej2-react-base@npm:26.2.4"
+  dependencies:
+    "@syncfusion/ej2-base": ~26.2.4
+  checksum: 0680511cb210e4d15aafef96ee5cc532d041179efbc5c64f538e68a0ed146707f9979a3bcb1a8555862e2f89decec9c91e6e40209d29d8d25529ac840c5e946c
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-react-navigations@npm:^26.1.41":
+  version: 26.2.4
+  resolution: "@syncfusion/ej2-react-navigations@npm:26.2.4"
+  dependencies:
+    "@syncfusion/ej2-base": ~26.2.4
+    "@syncfusion/ej2-navigations": 26.2.4
+    "@syncfusion/ej2-react-base": ~26.2.4
+  checksum: 034fae5862f9f6a6a294251ceee82c0870392de513670dea7645265fcab6041158a4462187bb554b55e4da999b6279733adae894fcb2cc1b9237eed5944a12f8
+  languageName: node
+  linkType: hard
+
+"@syncfusion/ej2-splitbuttons@npm:~26.2.4":
+  version: 26.2.4
+  resolution: "@syncfusion/ej2-splitbuttons@npm:26.2.4"
+  dependencies:
+    "@syncfusion/ej2-base": ~26.2.4
+    "@syncfusion/ej2-popups": ~26.2.4
+  checksum: c0534371b7bce68fea74f528013c18554b608fe79960c59bb3958d52d7169dc69b48ee1b5b4051dfdafbfe0af6b8ffce59c50227921f2bda9fd82355052761b9
   languageName: node
   linkType: hard
 
@@ -2896,6 +3010,16 @@ __metadata:
   version: 15.7.12
   resolution: "@types/prop-types@npm:15.7.12"
   checksum: ac16cc3d0a84431ffa5cfdf89579ad1e2269549f32ce0c769321fdd078f84db4fbe1b461ed5a1a496caf09e637c0e367d600c541435716a55b1d9713f5035dfe
+  languageName: node
+  linkType: hard
+
+"@types/react-native-snap-carousel@npm:^3.8.11":
+  version: 3.8.11
+  resolution: "@types/react-native-snap-carousel@npm:3.8.11"
+  dependencies:
+    "@types/react": "*"
+    react-native: "*"
+  checksum: 65c8bbc81f83259bb755ac62341133fa28f345acc4f42e3e999aaec428b0757a9948bc7c20ed12c97fb3967f253ae3a152042f345b55c4e26baedc1ce9ccdbef
   languageName: node
   linkType: hard
 
@@ -3177,11 +3301,13 @@ __metadata:
     "@react-native/eslint-config": 0.74.85
     "@react-native/metro-config": 0.74.85
     "@react-native/typescript-config": 0.74.85
-    "@react-navigation/bottom-tabs": ^6.6.0
+    "@react-navigation/bottom-tabs": ^6.6.1
     "@react-navigation/material-top-tabs": ^6.6.13
-    "@react-navigation/native": ^6.1.17
+    "@react-navigation/native": ^6.1.18
     "@react-navigation/stack": ^6.4.0
+    "@syncfusion/ej2-react-navigations": ^26.1.41
     "@types/react": ^18.2.6
+    "@types/react-native-snap-carousel": ^3.8.11
     "@types/react-native-vector-icons": ^6.4.18
     "@types/react-test-renderer": ^18.0.0
     axios: ^1.7.2
@@ -3191,11 +3317,13 @@ __metadata:
     prettier: 2.8.8
     react: 18.2.0
     react-native: 0.74.3
+    react-native-dynamic-vector-icons: ^1.3.0
     react-native-gesture-handler: ^2.17.1
     react-native-modal: ^13.0.1
     react-native-pager-view: ^6.3.3
     react-native-safe-area-context: ^4.10.8
     react-native-screens: ^3.32.0
+    react-native-snap-carousel: ^3.9.1
     react-native-tab-view: ^3.5.2
     react-native-vector-icons: ^10.1.0
     react-test-renderer: 18.2.0
@@ -3501,7 +3629,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"asap@npm:~2.0.6":
+"asap@npm:~2.0.3, asap@npm:~2.0.6":
   version: 2.0.6
   resolution: "asap@npm:2.0.6"
   checksum: b296c92c4b969e973260e47523207cd5769abd27c245a68c26dc7a0fe8053c55bb04360237cb51cab1df52be939da77150ace99ad331fb7fb13b3423ed73ff3d
@@ -4187,6 +4315,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"core-js@npm:^1.0.0":
+  version: 1.2.7
+  resolution: "core-js@npm:1.2.7"
+  checksum: 0b76371bfa98708351cde580f9287e2360d2209920e738ae950ae74ad08639a2e063541020bf666c28778956fc356ed9fe56d962129c88a87a6a4a0612526c75
+  languageName: node
+  linkType: hard
+
 "core-util-is@npm:~1.0.0":
   version: 1.0.3
   resolution: "core-util-is@npm:1.0.3"
@@ -4491,7 +4626,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"encoding@npm:^0.1.13":
+"encoding@npm:^0.1.11, encoding@npm:^0.1.13":
   version: 0.1.13
   resolution: "encoding@npm:0.1.13"
   dependencies:
@@ -5110,6 +5245,21 @@ __metadata:
   dependencies:
     bser: 2.1.1
   checksum: b15a124cef28916fe07b400eb87cbc73ca082c142abf7ca8e8de6af43eca79ca7bd13eb4d4d48240b3bd3136eaac40d16e42d6edf87a8e5d1dd8070626860c78
+  languageName: node
+  linkType: hard
+
+"fbjs@npm:^0.8.4":
+  version: 0.8.18
+  resolution: "fbjs@npm:0.8.18"
+  dependencies:
+    core-js: ^1.0.0
+    isomorphic-fetch: ^2.1.1
+    loose-envify: ^1.0.0
+    object-assign: ^4.1.0
+    promise: ^7.1.1
+    setimmediate: ^1.0.5
+    ua-parser-js: ^0.7.30
+  checksum: 668731b946a765908c9cbe51d5160f973abb78004b3d122587c3e930e3e1ddcc0ce2b17f2a8637dc9d733e149aa580f8d3035a35cc2d3bc78b78f1b19aab90e2
   languageName: node
   linkType: hard
 
@@ -6059,6 +6209,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-stream@npm:^1.0.1":
+  version: 1.1.0
+  resolution: "is-stream@npm:1.1.0"
+  checksum: 063c6bec9d5647aa6d42108d4c59723d2bd4ae42135a2d4db6eadbd49b7ea05b750fd69d279e5c7c45cf9da753ad2c00d8978be354d65aa9f6bb434969c6a2ae
+  languageName: node
+  linkType: hard
+
 "is-stream@npm:^2.0.0":
   version: 2.0.1
   resolution: "is-stream@npm:2.0.1"
@@ -6174,6 +6331,16 @@ __metadata:
   version: 3.0.1
   resolution: "isobject@npm:3.0.1"
   checksum: db85c4c970ce30693676487cca0e61da2ca34e8d4967c2e1309143ff910c207133a969f9e4ddb2dc6aba670aabce4e0e307146c310350b298e74a31f7d464703
+  languageName: node
+  linkType: hard
+
+"isomorphic-fetch@npm:^2.1.1":
+  version: 2.2.1
+  resolution: "isomorphic-fetch@npm:2.2.1"
+  dependencies:
+    node-fetch: ^1.0.1
+    whatwg-fetch: ">=0.10.0"
+  checksum: bb5daa7c3785d6742f4379a81e55b549a469503f7c9bf9411b48592e86632cf5e8fe8ea878dba185c0f33eb7c510c23abdeb55aebfdf5d3c70f031ced68c5424
   languageName: node
   linkType: hard
 
@@ -7615,6 +7782,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-fetch@npm:^1.0.1":
+  version: 1.7.3
+  resolution: "node-fetch@npm:1.7.3"
+  dependencies:
+    encoding: ^0.1.11
+    is-stream: ^1.0.1
+  checksum: 3bb0528c05d541316ebe52770d71ee25a6dce334df4231fd55df41a644143e07f068637488c18a5b0c43f05041dbd3346752f9e19b50df50569a802484544d5b
+  languageName: node
+  linkType: hard
+
 "node-fetch@npm:^2.2.0, node-fetch@npm:^2.6.0":
   version: 2.7.0
   resolution: "node-fetch@npm:2.7.0"
@@ -7718,7 +7895,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object-assign@npm:^4.1.1":
+"object-assign@npm:^4.1.0, object-assign@npm:^4.1.1":
   version: 4.1.1
   resolution: "object-assign@npm:4.1.1"
   checksum: fcc6e4ea8c7fe48abfbb552578b1c53e0d194086e2e6bbbf59e0a536381a292f39943c6e9628af05b5528aa5e3318bb30d6b2e53cadaf5b8fe9e12c4b69af23f
@@ -8161,6 +8338,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"promise@npm:^7.1.1":
+  version: 7.3.1
+  resolution: "promise@npm:7.3.1"
+  dependencies:
+    asap: ~2.0.3
+  checksum: 475bb069130179fbd27ed2ab45f26d8862376a137a57314cf53310bdd85cc986a826fd585829be97ebc0aaf10e9d8e68be1bfe5a4a0364144b1f9eedfa940cf1
+  languageName: node
+  linkType: hard
+
 "promise@npm:^8.3.0":
   version: 8.3.0
   resolution: "promise@npm:8.3.0"
@@ -8180,7 +8366,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -8254,6 +8440,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-addons-shallow-compare@npm:15.6.2":
+  version: 15.6.2
+  resolution: "react-addons-shallow-compare@npm:15.6.2"
+  dependencies:
+    fbjs: ^0.8.4
+    object-assign: ^4.1.0
+  checksum: cfe94358c6103f8434b91969a2a1876d3e76df227f0be9bf58c11a1bdec01500475eb09ca7ddd9d98519a14c18f91fbd11127adfdd092c4f3c5b234b638c4802
+  languageName: node
+  linkType: hard
+
 "react-devtools-core@npm:^5.0.0":
   version: 5.3.1
   resolution: "react-devtools-core@npm:5.3.1"
@@ -8300,6 +8496,15 @@ __metadata:
   dependencies:
     prop-types: ^15.7.2
   checksum: eb35821de36ae4eb00f97d99fc22ed79bd017248092ff1299f9d46a7ab946de16d2e6d6bfbf4cab5ef77d0d3bf47684aec761a7670ec7d36aae8d77ab8ddd171
+  languageName: node
+  linkType: hard
+
+"react-native-dynamic-vector-icons@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "react-native-dynamic-vector-icons@npm:1.3.0"
+  dependencies:
+    react-native-vector-icons: ">= 6.x.x"
+  checksum: a8fda44f1fc6b3bfcb99cc408938e6ed30f6dfce539d2bb696816a780a89ebff15f6e74fef52a5ee6f64e9614382fe799ef25a4614fd8d8fab65caeda9b4e04c
   languageName: node
   linkType: hard
 
@@ -8364,6 +8569,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-snap-carousel@npm:^3.9.1":
+  version: 3.9.1
+  resolution: "react-native-snap-carousel@npm:3.9.1"
+  dependencies:
+    prop-types: ^15.6.1
+    react-addons-shallow-compare: 15.6.2
+  peerDependencies:
+    react: ">=15.0.0"
+    react-native: "*"
+  checksum: e71f6887ba8e86b4aea6d6a88c304135a7acbb5ef9173b78018fc0e6d9965da9ec1d7c794db31282dc85892c6ca89f398d07145ab3e7d1e28cf12a09c247bb9d
+  languageName: node
+  linkType: hard
+
 "react-native-tab-view@npm:^3.5.2":
   version: 3.5.2
   resolution: "react-native-tab-view@npm:3.5.2"
@@ -8377,7 +8595,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-vector-icons@npm:^10.1.0":
+"react-native-vector-icons@npm:>= 6.x.x, react-native-vector-icons@npm:^10.1.0":
   version: 10.1.0
   resolution: "react-native-vector-icons@npm:10.1.0"
   dependencies:
@@ -8392,7 +8610,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native@npm:0.74.3":
+"react-native@npm:*, react-native@npm:0.74.3":
   version: 0.74.3
   resolution: "react-native@npm:0.74.3"
   dependencies:
@@ -8949,6 +9167,13 @@ __metadata:
     functions-have-names: ^1.2.3
     has-property-descriptors: ^1.0.2
   checksum: d6229a71527fd0404399fc6227e0ff0652800362510822a291925c9d7b48a1ca1a468b11b281471c34cd5a2da0db4f5d7ff315a61d26655e77f6e971e6d0c80f
+  languageName: node
+  linkType: hard
+
+"setimmediate@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "setimmediate@npm:1.0.5"
+  checksum: c9a6f2c5b51a2dabdc0247db9c46460152ffc62ee139f3157440bd48e7c59425093f42719ac1d7931f054f153e2d26cf37dfeb8da17a794a58198a2705e527fd
   languageName: node
   linkType: hard
 
@@ -9672,6 +9897,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ua-parser-js@npm:^0.7.30":
+  version: 0.7.38
+  resolution: "ua-parser-js@npm:0.7.38"
+  checksum: e9cbf26c0029746b1be4672280b4a88183787297a90b645a30a79bafde3c46542c7d80df9007092f7d76f80181da7ad9722af7f0d87c7df706de3ab833e69384
+  languageName: node
+  linkType: hard
+
 "unbox-primitive@npm:^1.0.2":
   version: 1.0.2
   resolution: "unbox-primitive@npm:1.0.2"
@@ -9866,7 +10098,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"whatwg-fetch@npm:^3.0.0":
+"whatwg-fetch@npm:>=0.10.0, whatwg-fetch@npm:^3.0.0":
   version: 3.6.20
   resolution: "whatwg-fetch@npm:3.6.20"
   checksum: c58851ea2c4efe5c2235f13450f426824cf0253c1d45da28f45900290ae602a20aff2ab43346f16ec58917d5562e159cd691efa368354b2e82918c2146a519c5
