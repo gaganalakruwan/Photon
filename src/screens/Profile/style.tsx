@@ -43,6 +43,45 @@ const styles = StyleSheet.create({
     width: '100%',
     marginLeft: 45,
   },
+
+  editProfileContainer: {
+    width: '100%',
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 20,
+    paddingBottom: 20,
+  },
+  label: {
+    fontSize: 16,
+    marginBottom: 10,
+    color: colors.black,
+    fontWeight: '500',
+  },
+  input: {
+    height: 50,
+    borderColor: colors.iconGray,
+    backgroundColor: colors.iconGray,
+    borderWidth: 1,
+    borderRadius: 20,
+    marginBottom: 15,
+    color: colors.black,
+    fontSize: 16,
+    paddingHorizontal: 20,
+  },
+  updateButton: {
+    backgroundColor: colors.green,
+    padding: 15,
+    borderRadius: 25,
+    width: '65%',
+    alignSelf: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  updateButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '600',
+  },
 });
 
 export default styles;

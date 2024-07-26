@@ -33,4 +33,14 @@ export default StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal: 5,
   },
+
+  settingsContainer: {
+    backgroundColor: colors.iconGray,
+    borderRadius: 100,
+    width: getScaleNumber(22),
+    height: getScaleNumber(22),
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginHorizontal: 5,
+  },
 });

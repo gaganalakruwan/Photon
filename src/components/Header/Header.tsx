@@ -13,6 +13,7 @@ type props = {
   onBackPress?: () => void;
   onPressSearch?: () => void;
   onPressSlider?: () => void;
+  onPressSettings?: () => void;
   isBack?: boolean;
   isProfile?: boolean;
 };
@@ -24,6 +25,7 @@ const Header = ({
   isProfile,
   onPressSearch,
   onPressSlider,
+  onPressSettings,
 }: props) => {
   return (
     <View style={style.container}>
@@ -69,6 +71,18 @@ const Header = ({
               style={style.sliderContainer}>
               <IconFA
                 name="sliders"
+                color={colors.iconBlack}
+                size={getScaleNumber(15)}
+              />
+            </TouchableOpacity>
+          )}
+
+          {onPressSettings && (
+            <TouchableOpacity
+              onPress={onPressSettings}
+              style={style.settingsContainer}>
+              <IconI
+                name="settings-outline"
                 color={colors.iconBlack}
                 size={getScaleNumber(15)}
               />
