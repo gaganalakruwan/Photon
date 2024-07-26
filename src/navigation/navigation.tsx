@@ -22,6 +22,7 @@ import StartingPage4 from '../screens/Starting/Start4';
 
 import App from '../../App';
 import {colors} from '../constants/colors';
+import Settings from '../screens/Settings/Settings';
 const AuthStack = createStackNavigator<StackParameterList>();
 const Tab = createBottomTabNavigator();
 
@@ -61,6 +62,11 @@ const AuthStackNavigator = () => {
       <AuthStack.Screen
         name={NAVIGATION_STACK.START4 as keyof StackParameterList} // Added START2
         component={StartingPage4}
+      />
+
+      <AuthStack.Screen
+        name={NAVIGATION_STACK.SETTINGS as keyof StackParameterList} // Added START2
+        component={Settings}
       />
     </AuthStack.Navigator>
   );
@@ -143,17 +149,11 @@ const NewBottomTab = () => {
           tabBarLabelStyle: {color: 'black'},
 
           tabBarIcon: ({focused, color, size}) => {
-            return (
-              <IconSL
-                name={'user'}
-                size={25}
-                color={color}
-              />
-            );
+            return <IconSL name={'user'} size={25} color={color} />;
           },
-
         })}
       />
+
       <Tab.Screen
         key="notification"
         name="Notification"
@@ -161,15 +161,8 @@ const NewBottomTab = () => {
         options={{
           unmountOnBlur: true,
           tabBarIcon: ({focused, color, size}) => {
-            return (
-              <IconSL
-                name={'bell'}
-                size={25}
-                color={color}
-              />
-            );
+            return <IconSL name={'bell'} size={25} color={color} />;
           },
-
 
           tabBarLabel: 'notification',
           tabBarLabelPosition: 'below-icon',

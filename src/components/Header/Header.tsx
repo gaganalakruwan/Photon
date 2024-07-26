@@ -16,6 +16,9 @@ type props = {
   onPressSettings?: () => void;
   isBack?: boolean;
   isProfile?: boolean;
+  titleTextStyle?: any;
+  containerStyles?: any;
+  iconColor?: any;
 };
 const Header = ({
   title,
@@ -26,9 +29,12 @@ const Header = ({
   onPressSearch,
   onPressSlider,
   onPressSettings,
+  titleTextStyle,
+  containerStyles,
+  iconColor,
 }: props) => {
   return (
-    <View style={style.container}>
+    <View style={[style.container, containerStyles]}>
       <TouchableOpacity onPress={onBackPress}>
         {isMenu && (
           <IconE
@@ -40,12 +46,12 @@ const Header = ({
         {isBack && (
           <IconI
             name="chevron-back"
-            color={colors.iconBlack}
+            color={iconColor || colors.iconBlack}
             size={getScaleNumber(30)}
           />
         )}
       </TouchableOpacity>
-      <Text style={style.titleText}>{title}</Text>
+      <Text style={[style.titleText, titleTextStyle]}>{title}</Text>
       <View>
         {isProfile && (
           <Image

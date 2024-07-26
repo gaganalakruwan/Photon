@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  TouchableHighlight,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -15,6 +16,7 @@ import CustomIcon from '../../components/CustomIcon/CustomIcon';
 import MenuItem from '../../components/MenuItem/MenuItem';
 import {useNavigation} from '@react-navigation/native';
 import {ScrollView} from 'react-native-gesture-handler';
+import Modal from 'react-native-modal'; // Import the Modal component
 
 const Profile = () => {
   const navigation = useNavigation();
@@ -23,6 +25,7 @@ const Profile = () => {
   const [phoneNumber, setPhoneNumber] = useState('+945521236');
   const [email, setEmail] = useState('federica98@gmail.com');
   const [dateOfBirth, setDateOfBirth] = useState('DD/MM/YY');
+  const [isModalVisible, setModalVisible] = useState(false);
 
   const handleEditProfile = () => {
     setIsEditing(true);
@@ -30,11 +33,28 @@ const Profile = () => {
 
   const handleUpdateProfile = () => {
     setIsEditing(false);
-    //profile update logic
+    // profile update logic
+  };
+
+  const handleLogout = () => {
+    setModalVisible(true);
+  };
+
+  const confirmLogout = () => {
+    setModalVisible(false);
+    // handle logout logic
+  };
+
+  const cancelLogout = () => {
+    setModalVisible(false);
   };
 
   return (
-    <SafeAreaView style={styles.mainContainer}>
+    <SafeAreaView
+      style={[
+        styles.mainContainer,
+        isModalVisible && styles.mainContainerModalVisible,
+      ]}>
       <Header
         title="Profile"
         isBack={true}
@@ -122,14 +142,48 @@ const Profile = () => {
                   name="payment"
                   title="Payment Methods"
                 />
-                <MenuItem type="Feather" name="settings" title="Settings" />
+                <MenuItem
+                  type="Feather"
+                  name="settings"
+                  title="Settings"
+                  onPress={() => navigation.navigate('SETTINGS' as never)}
+                />
                 <MenuItem type="Ionicons" name="help-outline" title="Help" />
-                <MenuItem type="MaterialIcons" name="logout" title="Logout" />
+                <MenuItem
+                  type="MaterialIcons"
+                  name="logout"
+                  title="Logout"
+                  onPress={handleLogout}
+                />
               </View>
             </>
           )}
         </View>
       </ScrollView>
+
+      <Modal
+        style={styles.bottomModalView}
+        isVisible={isModalVisible}
+        backdropOpacity={0.5}>
+        <View style={styles.modal}>
+          <Text style={styles.modalTitle}>Logout</Text>
+          <Text style={styles.modalText}>
+            Are you sure you want to log out?
+          </Text>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              style={[styles.button, styles.cancelButton]}
+              onPress={cancelLogout}>
+              <Text style={styles.noButtonText}>No</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.button, styles.confirmButton]}
+              onPress={confirmLogout}>
+              <Text style={styles.yesButtonText}>Yes, Logout</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 };
