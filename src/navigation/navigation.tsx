@@ -28,6 +28,7 @@ import Favorites from '../screens/Favorites/Favorites';
 import SpareParts from '../screens/SpareParts/SpareParts';
 import NewSpareParts from '../screens/NewSpareParts/NewSpareParts';
 import SparePartsTypes from '../screens/SparePartsTypes/SparePartsTypes';
+import ServiceRequest from '../screens/ServiceRequests/ServiceRequests';
 const AuthStack = createStackNavigator<StackParameterList>();
 const Tab = createBottomTabNavigator();
 const ProfileStack = createStackNavigator();
@@ -78,6 +79,11 @@ const AuthStackNavigator = () => {
       <AuthStack.Screen
         name={NAVIGATION_STACK.HELPCENTER as keyof StackParameterList} // Added START2
         component={HeplCenter}
+      />
+
+      <AuthStack.Screen
+        name={NAVIGATION_STACK.SERVICEREQUESTS as keyof StackParameterList} // Added START2
+        component={ServiceRequest}
       />
     </AuthStack.Navigator>
   );
