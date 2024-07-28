@@ -12,6 +12,7 @@ export declare type StackParameterList = {
   MAIN_HOME: undefined;
   MACHINERY: undefined;
   MACHINERY_LIST: undefined;
+  MACHINE_DETAILS: undefined;
   EDIT_PROFILE: undefined;
   CATEGORIES: undefined;
   SERVICE_REQUESTS: undefined;

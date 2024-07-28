@@ -53,7 +53,7 @@ const Machinery: React.FC<
   ];
 
   const handleReadMore = () => {
-    // Readmore logic
+    navigation.navigate('MACHINE_DETAILS' as never);
   };
 
   return (

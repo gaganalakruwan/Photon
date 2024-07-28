@@ -34,6 +34,7 @@ import Categories from '../screens/Categories/Categories';
 import NewProducts from '../screens/NewProduct/NewProduct';
 import MachineryList from '../screens/MachineryList/MachineryList';
 import Machinery from '../screens/Machinery/Machinery';
+import MachineDetails from '../screens/MachineryDetails/MachineryDetails';
 const AuthStack = createStackNavigator<StackParameterList>();
 const Tab = createBottomTabNavigator();
 const ProfileStack = createStackNavigator();
@@ -103,6 +104,11 @@ const AuthStackNavigator = () => {
       <AuthStack.Screen
         name={NAVIGATION_STACK.MACHINERY as keyof StackParameterList}
         component={Machinery}
+      />
+
+      <AuthStack.Screen
+        name={NAVIGATION_STACK.MACHINE_DETAILS as keyof StackParameterList}
+        component={MachineDetails}
       />
     </AuthStack.Navigator>
   );
