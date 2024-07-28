@@ -7,19 +7,25 @@ import {
   Text,
   TouchableOpacity,
   Animated,
+  StatusBar,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
 import styles from './style';
+import {colors} from '../../constants/colors';
 
 const Tab = createMaterialTopTabNavigator();
 
 const MainAuth = () => {
-
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar
+        animated={true}
+        backgroundColor={colors.iconGray}
+        barStyle="dark-content"
+      />
       <View style={styles.logoContainer}>
         <Image source={require('../../assets/logo2.png')} style={styles.logo} />
       </View>
@@ -62,6 +68,7 @@ const MainAuth = () => {
                   <Animated.Text style={[styles.tabText, {opacity}]}>
                     {label}
                   </Animated.Text>
+
                   {isFocused && <View style={styles.activeTabLine} />}
                 </TouchableOpacity>
               );
@@ -91,4 +98,3 @@ const MainAuth = () => {
 };
 
 export default MainAuth;
-

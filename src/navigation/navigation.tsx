@@ -29,6 +29,7 @@ import SpareParts from '../screens/SpareParts/SpareParts';
 import NewSpareParts from '../screens/NewSpareParts/NewSpareParts';
 import SparePartsTypes from '../screens/SparePartsTypes/SparePartsTypes';
 import ServiceRequest from '../screens/ServiceRequests/ServiceRequests';
+import EditProfile from '../screens/EditProfile/EditProfile';
 const AuthStack = createStackNavigator<StackParameterList>();
 const Tab = createBottomTabNavigator();
 const ProfileStack = createStackNavigator();
@@ -84,6 +85,10 @@ const AuthStackNavigator = () => {
       <AuthStack.Screen
         name={NAVIGATION_STACK.SERVICEREQUESTS as keyof StackParameterList} // Added START2
         component={ServiceRequest}
+      />
+      <AuthStack.Screen
+        name={NAVIGATION_STACK.EDITPROFILE as keyof StackParameterList} // Added START2
+        component={EditProfile}
       />
     </AuthStack.Navigator>
   );

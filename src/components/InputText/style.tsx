@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {colors} from '../../constants/colors';
 
 export const styles = StyleSheet.create({
   container: {
@@ -6,7 +7,8 @@ export const styles = StyleSheet.create({
   },
   label: {
     fontSize: 16,
-    color: '#333',
+    color: colors.darkGray,
+    fontWeight: '600',
   },
   input: {
     fontSize: 16,

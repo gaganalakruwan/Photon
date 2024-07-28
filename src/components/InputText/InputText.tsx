@@ -1,19 +1,22 @@
 import {Text, View, TextInput} from 'react-native';
 import React from 'react';
 import styles from './style';
+import {colors} from '../../constants/colors';
 interface InputTextProps {
   label: string;
   value: string;
-  // placeHolder: string;
+  placeHolder?: string;
   onChangeText: (text: string) => void;
   secureTextEntry?: boolean;
+  placeholderTextColor?: string;
 }
 
 const InputText: React.FC<InputTextProps> = ({
   label,
-  // placeHolder,
+  placeHolder,
   value,
   onChangeText,
+  placeholderTextColor,
   secureTextEntry = false,
 }) => {
   return (
@@ -24,6 +27,8 @@ const InputText: React.FC<InputTextProps> = ({
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
+        placeholder={placeHolder}
+        placeholderTextColor={colors.darkGray}
       />
     </View>
   );

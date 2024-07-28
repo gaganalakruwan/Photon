@@ -1,16 +1,20 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import InputText from '../../components/InputText/InputText';
 import styles from './style';
-import {Alert, View} from 'react-native';
+import {Alert, LogBox, ScrollView, TouchableOpacity, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {StackScreenProps} from '@react-navigation/stack';
 import {StackParameterList} from '../../navigation/type';
 import ActionButton from '../../components/ActionButton/ActionButton';
 import {useNavigation} from '@react-navigation/native';
+import {Text} from 'react-native-paper';
+import CustomIcon from '../../components/CustomIcon/CustomIcon';
+import {colors} from '../../constants/colors';
 
 const Login: React.FC<StackScreenProps<StackParameterList, 'LOGIN'>> = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = () => {
     const email = 'test@example.com';
@@ -25,31 +29,79 @@ const Login: React.FC<StackScreenProps<StackParameterList, 'LOGIN'>> = () => {
 
   const navigation = useNavigation();
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <View style={styles.container}>
-        <InputText
-          label="Email"
-          value={email}
-          onChangeText={setEmail}
-          
-        />
-        <InputText
-          label="Password"
-          value={password}
-          onChangeText={setPassword}
-          secureTextEntry
-          
-        />
-        <ActionButton
-          title={'Login'}
-          onPress={() => navigation.navigate('START1' as never)} // Changed 'MAIN_HOME' to 'START1'
-          containerStyle={{alignSelf: 'center', marginTop: 50}}
-        />
-      </View>
+    <SafeAreaView style={styles.safeArea}>
+      <ScrollView>
+        <View style={styles.container}>
+          <InputText
+            label="Email Address"
+            value={email}
+            onChangeText={setEmail}
+            placeHolder="Sample@gmail.com"
+          />
+          <View>
+            <InputText
+              label="Password"
+              value={password}
+              onChangeText={setPassword}
+              placeHolder="**********"
+              secureTextEntry={!showPassword}
+            />
+            <TouchableOpacity
+              style={styles.passwordIcon}
+              onPress={() => setShowPassword(!showPassword)}>
+              <CustomIcon
+                type={'FontAwesome'}
+                icon={showPassword ? 'eye' : 'eye-slash'}
+                size={20}
+                color={colors.green}
+              />
+            </TouchableOpacity>
+          </View>
+          <TouchableOpacity style={styles.forgotPasscodeView}>
+            <Text style={styles.forgotPasscodeText}>Forgot Passcode?</Text>
+          </TouchableOpacity>
+
+          <View style={styles.socialLoginContainer}>
+            <Text style={styles.socialLoginText}>or login with</Text>
+            <View style={styles.socialIconsContainer}>
+              <TouchableOpacity style={styles.iconContainer}>
+                <CustomIcon
+                  type={'FontAwesome'}
+                  icon={'google'}
+                  size={25}
+                  color={colors.green}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.iconContainer}>
+                <CustomIcon
+                  type={'Ionicons'}
+                  icon={'logo-facebook'}
+                  size={25}
+                  color={colors.green}
+                />
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.iconContainer}>
+                <CustomIcon
+                  type={'Ionicons'}
+                  icon={'finger-print'}
+                  size={25}
+                  color={colors.green}
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <ActionButton
+            title={'Login'}
+            onPress={() => navigation.navigate('START1' as never)} // Changed 'MAIN_HOME' to 'START1'
+            containerStyle={{alignSelf: 'center', marginTop: 30, height: 50}}
+            textStyle={{fontWeight: '600', fontSize: 16}}
+          />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
 
 export default Login;
-
-//const styles = StyleSheet.create({});

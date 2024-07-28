@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor:'white'
+    backgroundColor: 'white',
   },
   logoContainer: {
     alignItems: 'center',
@@ -16,18 +16,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#E2F2E9',
   },
   logo: {
-    width: 150,
-    height: 150,
+    width: '100%',
+    height: '35%',
     resizeMode: 'contain',
   },
   tabContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 20,
-    borderBottomRightRadius:20,
-    borderBottomLeftRadius:20,
-    backgroundColor:'#E2F2E9'
+    borderBottomRightRadius: 25,
+    borderBottomLeftRadius: 25,
+    backgroundColor: '#E2F2E9',
   },
   tabContentContainer: {
     flexDirection: 'row',
@@ -39,20 +38,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 10,
-    marginHorizontal: 20, // Add margin to space out the tabs
+    marginHorizontal: 40, // Add margin to space out the tabs
   },
   tabText: {
     color: 'black',
-    fontSize: 30,
-    marginHorizontal:20
+    fontSize: 20,
+    marginHorizontal: 20,
+    fontWeight: 'bold',
   },
   activeTabLine: {
-    height: 5,
+    height: 3,
     alignItems: 'center',
     backgroundColor: '#008080', // Use a color that matches your design
     width: '100%',
-    position:'absolute',
-    bottom:1
+    position: 'absolute',
+    bottom: 1,
   },
 });
 

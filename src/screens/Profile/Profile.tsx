@@ -38,10 +38,7 @@ const Profile = () => {
     setIsEditing(true);
   };
 
-  const handleUpdateProfile = () => {
-    setIsEditing(false);
-    // profile update logic
-  };
+  const handleSettings = () => {};
 
   const handleLogout = () => {
     setModalVisible(true);
@@ -65,116 +62,61 @@ const Profile = () => {
       <Header
         title="Profile"
         isBack={true}
-        onPressSettings={isEditing ? () => setIsEditing(false) : undefined}
+        onPressSettings={() => handleSettings()}
       />
       <ScrollView>
         <View style={styles.profileContainer}>
-          {isEditing ? (
-            <>
-              <View style={styles.imageContainer}>
-                <Image
-                  source={require('../../assets/profile.jpg')}
-                  style={styles.image}
-                />
-                <TouchableOpacity
-                  style={styles.editIconContainer}
-                  onPress={handleEditProfile}>
-                  <Icon name="edit" size={24} color="#fff" />
-                </TouchableOpacity>
-              </View>
-              <Text style={styles.name}>Federica</Text>
-
-              <View style={styles.editProfileContainer}>
-                <TextInputWithLable
-                  label={'Full Name'}
-                  value={fullName}
-                  onChangeText={setFullName}
-                  placeHolder="Full Name"
-                />
-
-                <TextInputWithLable
-                  label={'Phone Number'}
-                  value={phoneNumber}
-                  onChangeText={setPhoneNumber}
-                  placeHolder="Phone Number"
-                  keyboardType="phone-pad"
-                />
-
-                <TextInputWithLable
-                  label={'Email'}
-                  value={email}
-                  onChangeText={setEmail}
-                  placeHolder="Email"
-                  keyboardType="email-address"
-                />
-
-                <TextInputWithLable
-                  label={'Date of Birth'}
-                  value={dateOfBirth}
-                  onChangeText={setDateOfBirth}
-                  placeHolder="Date of Birth"
-                />
-
-                <TouchableOpacity
-                  style={styles.updateButton}
-                  onPress={handleUpdateProfile}>
-                  <Text style={styles.updateButtonText}>Update Profile</Text>
-                </TouchableOpacity>
-              </View>
-            </>
-          ) : (
-            <>
-              <View style={styles.imageContainer}>
-                <Image
-                  source={require('../../assets/profile.jpg')}
-                  style={styles.image}
-                />
-                <TouchableOpacity
-                  style={styles.editIconContainer}
-                  onPress={handleEditProfile}>
-                  <Icon name="edit" size={24} color="#fff" />
-                </TouchableOpacity>
-              </View>
-              <Text style={styles.name}>Federica</Text>
-              <View style={styles.menuContainer}>
-                <MenuItem
-                  type="MaterialIcons"
-                  name="person-outline"
-                  title="Profile"
-                  onPress={handleEditProfile}
-                />
-                <MenuItem
-                  type="MaterialIcons"
-                  name="favorite-outline"
-                  title="Favorites"
-                  onPress={() => navigation.navigate('Favorites' as never)}
-                />
-                <MenuItem
-                  type="MaterialIcons"
-                  name="payment"
-                  title="Payment Methods"
-                />
-                <MenuItem
-                  type="Feather"
-                  name="settings"
-                  title="Settings"
-                  onPress={() => navigation.navigate('SETTINGS' as never)}
-                />
-                <MenuItem
-                  type="Ionicons"
-                  name="help-outline"
-                  title="Help"
-                  onPress={() => navigation.navigate('HELPCENTER' as never)}
-                />
-                <MenuItem
-                  type="MaterialIcons"
-                  name="logout"
-                  title="Logout"
-                  onPress={handleLogout}
-                />
-              </View>
-            </>
-          )}
+          <>
+            <View style={styles.imageContainer}>
+              <Image
+                source={require('../../assets/profile.jpg')}
+                style={styles.image}
+              />
+              <TouchableOpacity
+                style={styles.editIconContainer}
+                onPress={handleEditProfile}>
+                <Icon name="edit" size={24} color="#fff" />
+              </TouchableOpacity>
+            </View>
+            <Text style={styles.name}>Federica</Text>
+            <View style={styles.menuContainer}>
+              <MenuItem
+                type="MaterialIcons"
+                name="person-outline"
+                title="Profile"
+                onPress={() => navigation.navigate('EDITPROFILE' as never)}
+              />
+              <MenuItem
+                type="MaterialIcons"
+                name="favorite-outline"
+                title="Favorites"
+                onPress={() => navigation.navigate('Favorites' as never)}
+              />
+              <MenuItem
+                type="MaterialIcons"
+                name="payment"
+                title="Payment Methods"
+              />
+              <MenuItem
+                type="Feather"
+                name="settings"
+                title="Settings"
+                onPress={() => navigation.navigate('SETTINGS' as never)}
+              />
+              <MenuItem
+                type="Ionicons"
+                name="help-outline"
+                title="Help"
+                onPress={() => navigation.navigate('HELPCENTER' as never)}
+              />
+              <MenuItem
+                type="MaterialIcons"
+                name="logout"
+                title="Logout"
+                onPress={handleLogout}
+              />
+            </View>
+          </>
         </View>
       </ScrollView>
 
