@@ -25,9 +25,13 @@ import {colors} from '../constants/colors';
 import Settings from '../screens/Settings/Settings';
 import HeplCenter from '../screens/HelpCenter/HelpCenter';
 import Favorites from '../screens/Favorites/Favorites';
+import SpareParts from '../screens/SpareParts/SpareParts';
+import NewSpareParts from '../screens/NewSpareParts/NewSpareParts';
+import SparePartsTypes from '../screens/SparePartsTypes/SparePartsTypes';
 const AuthStack = createStackNavigator<StackParameterList>();
 const Tab = createBottomTabNavigator();
 const ProfileStack = createStackNavigator();
+const HomeStack = createStackNavigator();
 
 const AuthStackNavigator = () => {
   return (
@@ -97,6 +101,36 @@ const ProfileRoute = () => {
   );
 };
 
+const HomeRoute = () => {
+  return (
+    <HomeStack.Navigator initialRouteName="Home" screenOptions={{}}>
+      <HomeStack.Screen
+        name="Home"
+        component={Home}
+        options={{headerShown: false}}
+      />
+
+      <HomeStack.Screen
+        name="SpareParts"
+        component={SpareParts}
+        options={{headerShown: false}}
+      />
+
+      <HomeStack.Screen
+        name="NewSpareParts"
+        component={NewSpareParts}
+        options={{headerShown: false}}
+      />
+
+      <HomeStack.Screen
+        name="SparePartsTypes"
+        component={SparePartsTypes}
+        options={{headerShown: false}}
+      />
+    </HomeStack.Navigator>
+  );
+};
+
 const NewBottomTab = () => {
   return (
     <Tab.Navigator
@@ -128,9 +162,9 @@ const NewBottomTab = () => {
         tabBarButton: props => <TouchableOpacity {...props} />,
       })}>
       <Tab.Screen
-        key="home"
-        name="Home"
-        component={Home}
+        key="myhome"
+        name="MyHome"
+        component={HomeRoute}
         options={{
           unmountOnBlur: true,
           tabBarLabel: 'Discover',
