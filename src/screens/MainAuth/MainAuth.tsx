@@ -21,11 +21,6 @@ const Tab = createMaterialTopTabNavigator();
 const MainAuth = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar
-        animated={true}
-        backgroundColor={colors.iconGray}
-        barStyle="dark-content"
-      />
       <View style={styles.logoContainer}>
         <Image source={require('../../assets/logo2.png')} style={styles.logo} />
       </View>

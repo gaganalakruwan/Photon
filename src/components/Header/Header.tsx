@@ -14,6 +14,7 @@ type props = {
   onPressSearch?: () => void;
   onPressSlider?: () => void;
   onPressSettings?: () => void;
+  onPressProfileImage?: () => void;
   isBack?: boolean;
   isProfile?: boolean;
   titleTextStyle?: any;
@@ -29,6 +30,7 @@ const Header = ({
   onPressSearch,
   onPressSlider,
   onPressSettings,
+  onPressProfileImage,
   titleTextStyle,
   containerStyles,
   iconColor,
@@ -53,11 +55,18 @@ const Header = ({
       </TouchableOpacity>
       <Text style={[style.titleText, titleTextStyle]}>{title}</Text>
       <View>
-        {isProfile && (
-          <Image
-            source={require('../../assets/person.png')}
-            style={{borderRadius: 100}}
-          />
+        {onPressProfileImage && (
+          <TouchableOpacity onPress={onPressProfileImage}>
+            <Image
+              source={require('../../assets/profile.jpg')}
+              style={{
+                borderRadius: 100,
+                width: 40,
+                height: 40,
+                resizeMode: 'cover',
+              }}
+            />
+          </TouchableOpacity>
         )}
         <View style={{flexDirection: 'row'}}>
           {onPressSearch && (

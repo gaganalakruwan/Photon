@@ -13,20 +13,30 @@ import Header from '../../components/Header/Header';
 import InputText from '../../components/InputTextSearch/InputText';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import Categories from '../Categories/Categories';
-import NewProduct from '../NewProduct/NewProduct';
+import {useNavigation} from '@react-navigation/native';
+import {Searchbar} from 'react-native-paper';
+import NewProducts from '../NewProduct/NewProduct';
 const Tab = createMaterialTopTabNavigator();
 
 const Home = () => {
-  const [search, setSearch] = useState('');
+  const navigation = useNavigation();
+  const [searchQuery, setSearchQuery] = React.useState('');
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <Header isMenu isProfile />
+      <Header
+        isMenu
+        onPressProfileImage={() => navigation.navigate('MyProfile' as never)}
+      />
       <View style={styles.container}>
-        <Text style={styles.welcomeText}>Welcome to Photon Technology</Text>
-        <InputText
-          value={search}
-          onChangeText={setSearch}
-          placeHolder="Search"
+        <Text style={styles.welcomeText}>Welcome to</Text>
+        <Text style={styles.welcomeText2}>Photon Technology</Text>
+
+        <Searchbar
+          placeholder="Search"
+          onChangeText={setSearchQuery}
+          value={searchQuery}
+          style={styles.search}
+          inputStyle={{marginTop: -6}}
         />
         <Tab.Navigator
           tabBar={({state, descriptors, navigation: tabNav, position}) => (
@@ -64,7 +74,12 @@ const Home = () => {
                     key={route.key}
                     onPress={onPress}
                     style={styles.tab}>
-                    <Animated.Text style={[styles.tabText, {opacity}]}>
+                    <Animated.Text
+                      style={[
+                        styles.tabText,
+                        isFocused && styles.tabTextFocus,
+                        {opacity},
+                      ]}>
                       {label}
                     </Animated.Text>
                     {isFocused && <View style={styles.activeTabLine} />}
@@ -87,8 +102,8 @@ const Home = () => {
           />
           <Tab.Screen
             name="NewProducts"
-            component={NewProduct}
-            options={{tabBarLabel: 'NewProducts'}}
+            component={NewProducts}
+            options={{tabBarLabel: 'New Products'}}
           />
         </Tab.Navigator>
       </View>

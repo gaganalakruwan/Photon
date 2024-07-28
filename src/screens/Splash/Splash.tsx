@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { StackScreenProps } from '@react-navigation/stack';
-import { StackParameterList } from '../../navigation/type';
+import React, {useEffect} from 'react';
+import {View, Text, StyleSheet, Image, StatusBar} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {StackScreenProps} from '@react-navigation/stack';
+import {StackParameterList} from '../../navigation/type';
 import styles from './style'; // Import styles from style.tsx
+import {colors} from '../../constants/colors';
 
-const Splash: React.FC<StackScreenProps<StackParameterList, 'SPLASH'>> = ({ navigation }) => {
+const Splash: React.FC<StackScreenProps<StackParameterList, 'SPLASH'>> = ({
+  navigation,
+}) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigation.navigate('MAIN_AUTH');
@@ -16,6 +19,11 @@ const Splash: React.FC<StackScreenProps<StackParameterList, 'SPLASH'>> = ({ navi
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar
+        animated={true}
+        backgroundColor={colors.iconGray}
+        barStyle="dark-content"
+      />
       <View style={styles.logoContainer}>
         <Image source={require('../../assets/logo2.png')} style={styles.logo} />
       </View>

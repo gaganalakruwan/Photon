@@ -7,26 +7,10 @@ import DynamicIcons, {
 export type IconBaseProps = {
   type: keyof typeof IconType;
   icon: IconProps['name'];
-  color?: IconProps['color'];
-  size?: IconProps['size'];
-} & Omit<IconProps, 'type' | 'name' | 'color' | 'size'>;
+} & Omit<IconProps, 'type' | 'name'>;
 
-const CustomIcon = ({
-  type,
-  icon,
-  color = 'black', // Default color
-  size = 24, // Default size
-  ...props
-}: IconBaseProps) => {
-  return (
-    <DynamicIcons
-      type={IconType[type]}
-      name={icon}
-      color={color}
-      size={size}
-      {...props}
-    />
-  );
+const CustomIcon = ({type, icon, ...props}: IconBaseProps) => {
+  return <DynamicIcons type={IconType[type]} name={icon} {...props} />;
 };
 
 export default CustomIcon;

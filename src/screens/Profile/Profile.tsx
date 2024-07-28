@@ -63,6 +63,7 @@ const Profile = () => {
         title="Profile"
         isBack={true}
         onPressSettings={() => handleSettings()}
+        onBackPress={() => navigation.navigate('MyHome' as never)}
       />
       <ScrollView>
         <View style={styles.profileContainer}>

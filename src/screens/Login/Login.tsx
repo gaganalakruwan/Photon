@@ -1,7 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import InputText from '../../components/InputText/InputText';
 import styles from './style';
-import {Alert, LogBox, ScrollView, TouchableOpacity, View} from 'react-native';
+import {
+  Alert,
+  LogBox,
+  ScrollView,
+  StatusBar,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {StackScreenProps} from '@react-navigation/stack';
 import {StackParameterList} from '../../navigation/type';
@@ -30,6 +37,11 @@ const Login: React.FC<StackScreenProps<StackParameterList, 'LOGIN'>> = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.safeArea}>
+      <StatusBar
+        animated={true}
+        backgroundColor={colors.iconGray}
+        barStyle="dark-content"
+      />
       <ScrollView>
         <View style={styles.container}>
           <InputText

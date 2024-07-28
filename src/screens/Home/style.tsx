@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import { colors } from '../../constants/colors';
+import {colors} from '../../constants/colors';
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -8,73 +8,66 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    marginHorizontal:20
+    marginHorizontal: 5,
   },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 16,
-  },
-  menuIcon: {
-    marginLeft: 10,
-  },
-  profileIcon: {
-    marginRight: 10,
-  },
+
   welcomeText: {
     fontSize: 28,
     fontWeight: 'bold',
     textAlign: 'left',
-    marginVertical: 20,
-    color:colors.black
+    marginTop: 15,
+    color: colors.black,
+    marginHorizontal: 20,
   },
-  searchContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'gray',
-    borderRadius: 8,
-    paddingHorizontal: 10,
-    marginVertical: 20,
+
+  welcomeText2: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    textAlign: 'left',
+    color: colors.black,
+    marginHorizontal: 20,
   },
-  searchIcon: {
-    marginRight: 10,
+  search: {
+    height: 45,
+    marginTop: 20,
+    marginBottom: 15,
+    marginHorizontal: 15,
   },
-  searchInput: {
-    flex: 1,
-    height: 40,
-  },
+
   tabContainer: {
     flexDirection: 'row',
-    // justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 20,
+    marginBottom: 10,
+    marginHorizontal: 10,
   },
-  tabContentContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    // paddingLeft: 250,
-  },
+
   tab: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
     paddingVertical: 10,
-    // marginHorizontal: 20, // Add margin to space out the tabs
   },
   tabText: {
-    color: colors.green,
-    fontWeight:'400',
-    fontSize: 16,
-    // marginHorizontal:20
+    color: colors.black,
+    fontSize: 15,
+    marginHorizontal: 10,
+    fontWeight: '500',
   },
+
+  tabTextFocus: {
+    color: colors.green,
+  },
+
   activeTabLine: {
-    height: 5,
+    height: 4,
     alignItems: 'center',
-    backgroundColor: '#008080', // Use a color that matches your design
-    width: '80%',
-    position:'absolute',
-    bottom:1
+    backgroundColor: '#008080',
+    width: '85%',
+    alignSelf: 'center',
+    position: 'absolute',
+    bottom: 1,
   },
 });
 

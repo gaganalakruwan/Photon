@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import InputText from '../../components/InputText/InputText';
-import {Alert, TouchableOpacity, View} from 'react-native';
+import {Alert, StatusBar, TouchableOpacity, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {StackScreenProps} from '@react-navigation/stack';
 import {StackParameterList} from '../../navigation/type';
@@ -25,6 +25,11 @@ const SignUp: React.FC<
   const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.safeArea}>
+      <StatusBar
+        animated={true}
+        backgroundColor={colors.iconGray}
+        barStyle="dark-content"
+      />
       <ScrollView>
         <View style={styles.container}>
           <InputText
