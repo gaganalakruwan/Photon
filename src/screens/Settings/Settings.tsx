@@ -16,16 +16,18 @@ import MenuItem from '../../components/MenuItem/MenuItem';
 import {useNavigation} from '@react-navigation/native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {colors} from '../../constants/colors';
+import {StackScreenProps} from '@react-navigation/stack';
+import {StackParameterList} from '../../navigation/type';
 
-const Settings = () => {
-  const navigation = useNavigation();
-
+const Settings: React.FC<StackScreenProps<StackParameterList, 'SETTINGS'>> = ({
+  navigation,
+}) => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <Header
         title="Settings"
         isBack={true}
-        onBackPress={() => navigation.navigate('Profile' as never)}
+        onBackPress={() => navigation.navigate('PROFILE' as never)}
       />
       <ScrollView>
         <View style={styles.settingsContainer}>

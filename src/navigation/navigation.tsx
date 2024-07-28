@@ -30,6 +30,10 @@ import NewSpareParts from '../screens/NewSpareParts/NewSpareParts';
 import SparePartsTypes from '../screens/SparePartsTypes/SparePartsTypes';
 import ServiceRequest from '../screens/ServiceRequests/ServiceRequests';
 import EditProfile from '../screens/EditProfile/EditProfile';
+import Categories from '../screens/Categories/Categories';
+import NewProducts from '../screens/NewProduct/NewProduct';
+import MachineryList from '../screens/MachineryList/MachineryList';
+import Machinery from '../screens/Machinery/Machinery';
 const AuthStack = createStackNavigator<StackParameterList>();
 const Tab = createBottomTabNavigator();
 const ProfileStack = createStackNavigator();
@@ -54,41 +58,51 @@ const AuthStackNavigator = () => {
         component={NewBottomTab}
       />
       <AuthStack.Screen
-        name={NAVIGATION_STACK.START1 as keyof StackParameterList} // Added START1
+        name={NAVIGATION_STACK.START1 as keyof StackParameterList}
         component={StartingPage1}
       />
 
       <AuthStack.Screen
-        name={NAVIGATION_STACK.START2 as keyof StackParameterList} // Added START2
+        name={NAVIGATION_STACK.START2 as keyof StackParameterList}
         component={StartingPage2}
       />
 
       <AuthStack.Screen
-        name={NAVIGATION_STACK.START3 as keyof StackParameterList} // Added START1
+        name={NAVIGATION_STACK.START3 as keyof StackParameterList}
         component={StartingPage3}
       />
 
       <AuthStack.Screen
-        name={NAVIGATION_STACK.START4 as keyof StackParameterList} // Added START2
+        name={NAVIGATION_STACK.START4 as keyof StackParameterList}
         component={StartingPage4}
       />
 
       <AuthStack.Screen
-        name={NAVIGATION_STACK.SETTINGS as keyof StackParameterList} // Added START2
+        name={NAVIGATION_STACK.SETTINGS as keyof StackParameterList}
         component={Settings}
       />
       <AuthStack.Screen
-        name={NAVIGATION_STACK.HELPCENTER as keyof StackParameterList} // Added START2
+        name={NAVIGATION_STACK.HELP_CENTER as keyof StackParameterList}
         component={HeplCenter}
       />
 
       <AuthStack.Screen
-        name={NAVIGATION_STACK.SERVICEREQUESTS as keyof StackParameterList} // Added START2
+        name={NAVIGATION_STACK.SERVICE_REQUESTS as keyof StackParameterList}
         component={ServiceRequest}
       />
       <AuthStack.Screen
-        name={NAVIGATION_STACK.EDITPROFILE as keyof StackParameterList} // Added START2
+        name={NAVIGATION_STACK.EDIT_PROFILE as keyof StackParameterList}
         component={EditProfile}
+      />
+
+      <AuthStack.Screen
+        name={NAVIGATION_STACK.MACHINERY_LIST as keyof StackParameterList}
+        component={MachineryList}
+      />
+
+      <AuthStack.Screen
+        name={NAVIGATION_STACK.MACHINERY as keyof StackParameterList}
+        component={Machinery}
       />
     </AuthStack.Navigator>
   );
@@ -96,15 +110,17 @@ const AuthStackNavigator = () => {
 
 const ProfileRoute = () => {
   return (
-    <ProfileStack.Navigator initialRouteName="Profile" screenOptions={{}}>
+    <ProfileStack.Navigator
+      initialRouteName={NAVIGATION_STACK.PROFILE as keyof StackParameterList}
+      screenOptions={{}}>
       <ProfileStack.Screen
-        name="Profile"
+        name={NAVIGATION_STACK.PROFILE as keyof StackParameterList}
         component={Profile}
         options={{headerShown: false}}
       />
 
       <ProfileStack.Screen
-        name="Favorites"
+        name={NAVIGATION_STACK.FAVORITES as keyof StackParameterList}
         component={Favorites}
         options={{headerShown: false}}
       />
@@ -114,28 +130,42 @@ const ProfileRoute = () => {
 
 const HomeRoute = () => {
   return (
-    <HomeStack.Navigator initialRouteName="Home" screenOptions={{}}>
+    <HomeStack.Navigator
+      initialRouteName={NAVIGATION_STACK.HOME as keyof StackParameterList}
+      screenOptions={{}}>
       <HomeStack.Screen
-        name="Home"
+        name={NAVIGATION_STACK.HOME as keyof StackParameterList}
         component={Home}
         options={{headerShown: false}}
       />
 
       <HomeStack.Screen
-        name="SpareParts"
+        name={NAVIGATION_STACK.SPARE_PARTS as keyof StackParameterList}
         component={SpareParts}
         options={{headerShown: false}}
       />
 
       <HomeStack.Screen
-        name="NewSpareParts"
+        name={NAVIGATION_STACK.NEW_SPARE_PARTS as keyof StackParameterList}
         component={NewSpareParts}
         options={{headerShown: false}}
       />
 
       <HomeStack.Screen
-        name="SparePartsTypes"
+        name={NAVIGATION_STACK.SPARE_PARTS_TYPES as keyof StackParameterList}
         component={SparePartsTypes}
+        options={{headerShown: false}}
+      />
+
+      <HomeStack.Screen
+        name={NAVIGATION_STACK.CATEGORIES as keyof StackParameterList}
+        component={Categories}
+        options={{headerShown: false}}
+      />
+
+      <HomeStack.Screen
+        name={NAVIGATION_STACK.NEW_PRODUCTS as keyof StackParameterList}
+        component={NewProducts}
         options={{headerShown: false}}
       />
     </HomeStack.Navigator>
@@ -178,6 +208,7 @@ const NewBottomTab = () => {
         component={HomeRoute}
         options={{
           unmountOnBlur: true,
+          tabBarShowLabel: false,
           tabBarLabel: 'Discover',
           tabBarLabelPosition: 'below-icon',
           tabBarLabelStyle: {color: 'black'},
@@ -202,7 +233,7 @@ const NewBottomTab = () => {
               />
             );
           },
-
+          tabBarShowLabel: false,
           tabBarLabel: 'Chat',
           tabBarLabelPosition: 'below-icon',
           tabBarLabelStyle: {color: 'black'},
@@ -217,7 +248,7 @@ const NewBottomTab = () => {
           tabBarLabel: 'Profile',
           tabBarLabelPosition: 'below-icon',
           tabBarLabelStyle: {color: 'black'},
-
+          tabBarShowLabel: false,
           tabBarIcon: ({focused, color, size}) => {
             return <IconSL name={'user'} size={25} color={color} />;
           },

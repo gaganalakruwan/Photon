@@ -21,12 +21,14 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import styles from './style';
 import ItemCard from '../../components/ItemCard/ItemCard';
 import {Animated} from 'react-native';
+import {StackScreenProps} from '@react-navigation/stack';
+import {StackParameterList} from '../../navigation/type';
 
 const Tab = createMaterialTopTabNavigator();
 
-const SparePartsTypes = () => {
-  const navigation = useNavigation();
-
+const SparePartsTypes: React.FC<
+  StackScreenProps<StackParameterList, 'SPARE_PARTS_TYPES'>
+> = ({navigation}) => {
   useEffect(() => {
     LogBox.ignoreLogs(['new NativeEventEmitter']); // Ignore log notification by message
     LogBox.ignoreAllLogs();

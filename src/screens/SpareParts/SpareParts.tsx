@@ -23,12 +23,14 @@ import ItemCard from '../../components/ItemCard/ItemCard';
 import {Animated} from 'react-native';
 import SparePartsTypes from '../SparePartsTypes/SparePartsTypes';
 import NewSpareParts from '../NewSpareParts/NewSpareParts';
+import {StackScreenProps} from '@react-navigation/stack';
+import {StackParameterList} from '../../navigation/type';
 
 const Tab = createMaterialTopTabNavigator();
 
-const SpareParts = () => {
-  const navigation = useNavigation();
-
+const SpareParts: React.FC<
+  StackScreenProps<StackParameterList, 'SPARE_PARTS'>
+> = ({navigation}) => {
   const handleSearch = () => {};
 
   return (
@@ -36,7 +38,7 @@ const SpareParts = () => {
       <Header
         title="Spare Parts"
         isBack={true}
-        onBackPress={() => navigation.navigate('Profile' as never)}
+        onBackPress={() => navigation.navigate('HOME' as never)}
         onPressSearch={handleSearch}
       />
 
@@ -91,19 +93,19 @@ const SpareParts = () => {
           </View>
         )}
         sceneContainerStyle={{backgroundColor: '#FFFFFF'}}
-        initialRouteName="SparePartsTypes"
+        initialRouteName="SPARE_PARTS_TYPES"
         backBehavior="initialRoute"
         screenOptions={{
           tabBarScrollEnabled: true,
           swipeEnabled: false,
         }}>
         <Tab.Screen
-          name="SparePartsTypes"
+          name="SPARE_PARTS_TYPES"
           component={SparePartsTypes}
           options={{tabBarLabel: 'Types'}}
         />
         <Tab.Screen
-          name="NewSpareParts"
+          name="NEW_SPARE_PARTS"
           component={NewSpareParts}
           options={{tabBarLabel: 'New Parts'}}
         />

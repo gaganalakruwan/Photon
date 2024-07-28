@@ -19,14 +19,13 @@ import {useNavigation} from '@react-navigation/native';
 import {ScrollView} from 'react-native-gesture-handler';
 import Modal from 'react-native-modal'; // Import the Modal component
 import TextInputWithLable from '../../components/TextInputWithLable/TextInputWithLable';
+import {StackScreenProps} from '@react-navigation/stack';
+import {StackParameterList} from '../../navigation/type';
 
-const Profile = () => {
-  const navigation = useNavigation();
+const Profile: React.FC<StackScreenProps<StackParameterList, 'PROFILE'>> = ({
+  navigation,
+}) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [fullName, setFullName] = useState('Federica Bodi');
-  const [phoneNumber, setPhoneNumber] = useState('+945521236');
-  const [email, setEmail] = useState('federica98@gmail.com');
-  const [dateOfBirth, setDateOfBirth] = useState('DD/MM/YY');
   const [isModalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
@@ -85,13 +84,13 @@ const Profile = () => {
                 type="MaterialIcons"
                 name="person-outline"
                 title="Profile"
-                onPress={() => navigation.navigate('EDITPROFILE' as never)}
+                onPress={() => navigation.navigate('EDIT_PROFILE' as never)}
               />
               <MenuItem
                 type="MaterialIcons"
                 name="favorite-outline"
                 title="Favorites"
-                onPress={() => navigation.navigate('Favorites' as never)}
+                onPress={() => navigation.navigate('FAVORITES' as never)}
               />
               <MenuItem
                 type="MaterialIcons"
@@ -108,7 +107,7 @@ const Profile = () => {
                 type="Ionicons"
                 name="help-outline"
                 title="Help"
-                onPress={() => navigation.navigate('HELPCENTER' as never)}
+                onPress={() => navigation.navigate('HELP_CENTER' as never)}
               />
               <MenuItem
                 type="MaterialIcons"

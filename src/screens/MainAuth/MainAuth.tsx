@@ -15,10 +15,14 @@ import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
 import styles from './style';
 import {colors} from '../../constants/colors';
+import {StackScreenProps} from '@react-navigation/stack';
+import {StackParameterList} from '../../navigation/type';
 
 const Tab = createMaterialTopTabNavigator();
 
-const MainAuth = () => {
+const MainAuth: React.FC<StackScreenProps<StackParameterList, 'MAIN_AUTH'>> = ({
+  navigation,
+}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logoContainer}>

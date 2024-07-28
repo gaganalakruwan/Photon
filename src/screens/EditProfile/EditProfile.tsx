@@ -13,15 +13,14 @@ import React, {useEffect, useState} from 'react';
 import Header from '../../components/Header/Header';
 import styles from './style';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import CustomIcon from '../../components/CustomIcon/CustomIcon';
-import MenuItem from '../../components/MenuItem/MenuItem';
-import {useNavigation} from '@react-navigation/native';
 import {ScrollView} from 'react-native-gesture-handler';
-import Modal from 'react-native-modal'; // Import the Modal component
 import TextInputWithLable from '../../components/TextInputWithLable/TextInputWithLable';
+import {StackScreenProps} from '@react-navigation/stack';
+import {StackParameterList} from '../../navigation/type';
 
-const EditProfile = () => {
-  const navigation = useNavigation();
+const EditProfile: React.FC<
+  StackScreenProps<StackParameterList, 'EDIT_PROFILE'>
+> = ({navigation}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [fullName, setFullName] = useState('Federica Bodi');
   const [phoneNumber, setPhoneNumber] = useState('+945521236');
@@ -44,7 +43,7 @@ const EditProfile = () => {
       <Header
         title="Profile"
         isBack={true}
-        onBackPress={() => navigation.navigate('Profile' as never)}
+        onBackPress={() => navigation.navigate('PROFILE' as never)}
       />
       <ScrollView>
         <View style={styles.profileContainer}>

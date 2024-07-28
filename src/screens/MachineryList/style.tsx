@@ -1,52 +1,73 @@
-// MachineryListStyles.tsx
 import {StyleSheet} from 'react-native';
+import {colors} from '../../constants/colors';
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    backgroundColor: colors.white,
+  },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: 20,
-    backgroundColor: '#00695C',
-  },
-  headerText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#fff',
-    textAlign: 'center',
-    flex: 1,
-  },
-  rightIcons: {
-    flexDirection: 'row',
-  },
-  iconButton: {
     marginHorizontal: 5,
   },
+
+  welcomeText: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    textAlign: 'left',
+    marginTop: 15,
+    color: colors.black,
+    marginHorizontal: 20,
+  },
+
+  welcomeText2: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    textAlign: 'left',
+    color: colors.black,
+    marginHorizontal: 20,
+  },
+  search: {
+    height: 45,
+    marginTop: 20,
+    marginBottom: 15,
+    marginHorizontal: 15,
+  },
+
   tabContainer: {
     flexDirection: 'row',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 20,
+    marginBottom: 10,
+    marginHorizontal: 10,
   },
+
   tab: {
-    marginRight: 20,
-    fontSize: 16,
-    color: '#555',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    paddingVertical: 10,
   },
-  tabActive: {
-    marginRight: 20,
-    fontSize: 16,
-    color: '#00695C',
-    borderBottomWidth: 2,
-    borderBottomColor: '#00695C',
+  tabText: {
+    color: colors.black,
+    fontSize: 15,
+    marginHorizontal: 10,
+    fontWeight: '500',
   },
-  scrollView: {
-    flex: 1,
+
+  tabTextFocus: {
+    color: colors.green,
+  },
+
+  activeTabLine: {
+    height: 4,
+    alignItems: 'center',
+    backgroundColor: '#008080',
+    width: '85%',
+    alignSelf: 'center',
+    position: 'absolute',
+    bottom: 1,
   },
 });
 

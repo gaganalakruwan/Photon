@@ -15,9 +15,12 @@ import {colors} from '../../constants/colors';
 import {RadioButton} from 'react-native-paper';
 import CustomRadioButton from '../../components/RadioButton/RadioButton';
 import TextInputWithLable from '../../components/TextInputWithLable/TextInputWithLable';
+import {StackScreenProps} from '@react-navigation/stack';
+import {StackParameterList} from '../../navigation/type';
 
-const ServiceRequest = () => {
-  const navigation = useNavigation();
+const ServiceRequest: React.FC<
+  StackScreenProps<StackParameterList, 'SERVICE_REQUESTS'>
+> = ({navigation}) => {
   const [step, setStep] = useState(1); // Step state to track current step
   const [fullName, setFullName] = useState('');
   const [company, setCompany] = useState('');

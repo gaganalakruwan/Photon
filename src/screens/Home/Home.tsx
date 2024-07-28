@@ -16,10 +16,13 @@ import Categories from '../Categories/Categories';
 import {useNavigation} from '@react-navigation/native';
 import {Searchbar} from 'react-native-paper';
 import NewProducts from '../NewProduct/NewProduct';
+import {StackScreenProps} from '@react-navigation/stack';
+import {StackParameterList} from '../../navigation/type';
 const Tab = createMaterialTopTabNavigator();
 
-const Home = () => {
-  const navigation = useNavigation();
+const Home: React.FC<StackScreenProps<StackParameterList, 'HOME'>> = ({
+  navigation,
+}) => {
   const [searchQuery, setSearchQuery] = React.useState('');
   return (
     <SafeAreaView style={styles.mainContainer}>
@@ -89,19 +92,19 @@ const Home = () => {
             </View>
           )}
           sceneContainerStyle={{backgroundColor: '#FFFFFF'}}
-          initialRouteName="Categories"
+          initialRouteName="CATEGORIES"
           backBehavior="initialRoute"
           screenOptions={{
             tabBarScrollEnabled: true,
             swipeEnabled: false,
           }}>
           <Tab.Screen
-            name="Categories"
+            name="CATEGORIES"
             component={Categories}
             options={{tabBarLabel: 'Categories'}}
           />
           <Tab.Screen
-            name="NewProducts"
+            name="NEW_PRODUCTS"
             component={NewProducts}
             options={{tabBarLabel: 'New Products'}}
           />

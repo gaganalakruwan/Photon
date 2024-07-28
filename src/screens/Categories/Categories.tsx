@@ -1,19 +1,19 @@
 import React from 'react';
 import {FlatList, View} from 'react-native';
-import IconButton from '../../components/IconButton/IconButton';
 import styles from './style';
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
+import {StackScreenProps} from '@react-navigation/stack';
+import {StackParameterList} from '../../navigation/type';
 
-const machineryImage = require('../../assets/machinery.png');
-const servicesImage = require('../../assets/services.png');
-const sparePartsImage = require('../../assets/spare-parts.png');
-
-const Categories = () => {
+const Categories: React.FC<
+  StackScreenProps<StackParameterList, 'CATEGORIES'>
+> = ({navigation}) => {
   const categories = [
     {
       id: '1',
       name: 'Machinery',
       image: require('../../assets/Catagories/machine.png'),
+      onPress: () => navigation.navigate('MACHINERY_LIST' as never),
     },
     {
       id: '2',
@@ -25,6 +25,7 @@ const Categories = () => {
       id: '3',
       name: 'Spare Parts',
       image: require('../../assets/Catagories/spare.png'),
+      onPress: () => navigation.navigate('SPARE_PARTS' as never),
     },
   ];
 
@@ -38,7 +39,11 @@ const Categories = () => {
         data={categories}
         renderItem={({item}) =>
           item.image ? (
-            <CategoryCard imageUrl={item.image} category={item.name} />
+            <CategoryCard
+              imageUrl={item.image}
+              category={item.name}
+              onPress={item.onPress}
+            />
           ) : (
             <View style={styles.placeholder} />
           )

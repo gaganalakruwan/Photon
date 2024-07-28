@@ -20,18 +20,21 @@ import {useNavigation} from '@react-navigation/native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {colors} from '../../constants/colors';
 import {Searchbar} from 'react-native-paper';
+import {StackScreenProps} from '@react-navigation/stack';
+import {StackParameterList} from '../../navigation/type';
 
-const HeplCenter = () => {
-  const navigation = useNavigation();
+const HeplCenter: React.FC<
+  StackScreenProps<StackParameterList, 'HELP_CENTER'>
+> = ({navigation}) => {
   const [searchQuery, setSearchQuery] = React.useState('');
 
   return (
     <SafeAreaView style={styles.mainContainer}>
       <StatusBar animated={true} backgroundColor={colors.green} />
       <Header
-        title="Hepl Center"
+        title="Help Center"
         isBack={true}
-        onBackPress={() => navigation.navigate('Profile' as never)}
+        onBackPress={() => navigation.navigate('PROFILE' as never)}
         containerStyles={{backgroundColor: colors.green}}
         iconColor={colors.white}
         titleTextStyle={{color: colors.white}}

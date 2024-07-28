@@ -10,18 +10,14 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import Header from '../../components/Header/Header';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import CustomIcon from '../../components/CustomIcon/CustomIcon';
-import MenuItem from '../../components/MenuItem/MenuItem';
-import {useNavigation} from '@react-navigation/native';
-import {ScrollView} from 'react-native-gesture-handler';
-import {colors} from '../../constants/colors';
 import styles from './style';
 import ItemCard from '../../components/ItemCard/ItemCard';
+import {StackScreenProps} from '@react-navigation/stack';
+import {StackParameterList} from '../../navigation/type';
 
-const Favorites = () => {
-  const navigation = useNavigation();
-
+const Favorites: React.FC<
+  StackScreenProps<StackParameterList, 'FAVORITES'>
+> = ({navigation}) => {
   const handleReadMore = () => {
     // Readmore logic
   };
@@ -56,7 +52,7 @@ const Favorites = () => {
       <Header
         title="Favorites"
         isBack={true}
-        onBackPress={() => navigation.navigate('Profile' as never)}
+        onBackPress={() => navigation.navigate('PROFILE' as never)}
       />
       <View style={styles.flatListView}>
         <FlatList
