@@ -5,14 +5,13 @@ export declare type StackParameterList = {
   LOGIN: undefined;
   MAIN_HOME: undefined;
   HOME: undefined;
-  CHAT:undefined;
-  NOTIFICATION:undefined;
-  SIGN_UP:undefined;
-  MAIN_AUTH:undefined;
-  PROFILE:undefined;
+  CHAT: undefined;
+  NOTIFICATION: undefined;
+  SIGN_UP: undefined;
+  MAIN_AUTH: undefined;
+  PROFILE: undefined;
   START1: undefined;
   START2: undefined;
   START3: undefined;
-  START4 : undefined;
- 
+  START4: undefined;
 };

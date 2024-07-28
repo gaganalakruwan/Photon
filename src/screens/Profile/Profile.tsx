@@ -1,5 +1,6 @@
 import {
   Image,
+  LogBox,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -8,7 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from '../../components/Header/Header';
 import styles from './style';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -26,6 +27,11 @@ const Profile = () => {
   const [email, setEmail] = useState('federica98@gmail.com');
   const [dateOfBirth, setDateOfBirth] = useState('DD/MM/YY');
   const [isModalVisible, setModalVisible] = useState(false);
+
+  useEffect(() => {
+    LogBox.ignoreLogs(['new NativeEventEmitter']); // Ignore log notification by message
+    LogBox.ignoreAllLogs();
+  }, []);
 
   const handleEditProfile = () => {
     setIsEditing(true);
@@ -135,7 +141,8 @@ const Profile = () => {
                 <MenuItem
                   type="MaterialIcons"
                   name="favorite-outline"
-                  title="Favorite"
+                  title="Favorites"
+                  onPress={() => navigation.navigate('Favorites' as never)}
                 />
                 <MenuItem
                   type="MaterialIcons"
@@ -148,7 +155,12 @@ const Profile = () => {
                   title="Settings"
                   onPress={() => navigation.navigate('SETTINGS' as never)}
                 />
-                <MenuItem type="Ionicons" name="help-outline" title="Help" />
+                <MenuItem
+                  type="Ionicons"
+                  name="help-outline"
+                  title="Help"
+                  onPress={() => navigation.navigate('HELPCENTER' as never)}
+                />
                 <MenuItem
                   type="MaterialIcons"
                   name="logout"

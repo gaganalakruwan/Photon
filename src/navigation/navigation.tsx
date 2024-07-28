@@ -23,8 +23,11 @@ import StartingPage4 from '../screens/Starting/Start4';
 import App from '../../App';
 import {colors} from '../constants/colors';
 import Settings from '../screens/Settings/Settings';
+import HeplCenter from '../screens/HelpCenter/HelpCenter';
+import Favorites from '../screens/Favorites/Favorites';
 const AuthStack = createStackNavigator<StackParameterList>();
 const Tab = createBottomTabNavigator();
+const ProfileStack = createStackNavigator();
 
 const AuthStackNavigator = () => {
   return (
@@ -68,7 +71,29 @@ const AuthStackNavigator = () => {
         name={NAVIGATION_STACK.SETTINGS as keyof StackParameterList} // Added START2
         component={Settings}
       />
+      <AuthStack.Screen
+        name={NAVIGATION_STACK.HELPCENTER as keyof StackParameterList} // Added START2
+        component={HeplCenter}
+      />
     </AuthStack.Navigator>
+  );
+};
+
+const ProfileRoute = () => {
+  return (
+    <ProfileStack.Navigator initialRouteName="Profile" screenOptions={{}}>
+      <ProfileStack.Screen
+        name="Profile"
+        component={Profile}
+        options={{headerShown: false}}
+      />
+
+      <ProfileStack.Screen
+        name="Favorites"
+        component={Favorites}
+        options={{headerShown: false}}
+      />
+    </ProfileStack.Navigator>
   );
 };
 
@@ -139,9 +164,9 @@ const NewBottomTab = () => {
         }}
       />
       <Tab.Screen
-        key="profile"
-        name="Profile"
-        component={Profile}
+        key="myProfile"
+        name="MyProfile"
+        component={ProfileRoute}
         options={({route, navigation}) => ({
           unmountOnBlur: true,
           tabBarLabel: 'Profile',

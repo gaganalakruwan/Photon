@@ -8,7 +8,7 @@ export type IconBaseProps = {
   icon: IconProps['name'];
   color?: IconProps['color'];
   size?: IconProps['size'];
-} & Omit<IconProps, 'type' | 'name'>;
+} & Omit<IconProps, 'type' | 'name' | 'color' | 'size'>;
 
 const CustomIcon = ({type, icon, color, size, ...props}: IconBaseProps) => {
   return (
