@@ -38,9 +38,7 @@ const AuthStackNavigator = () => {
   return (
     <AuthStack.Navigator
       screenOptions={{headerShown: false}}
-      initialRouteName={
-        NAVIGATION_STACK.SERVICEREQUESTS as keyof StackParameterList
-      }>
+      initialRouteName={NAVIGATION_STACK.SPLASH as keyof StackParameterList}>
       <AuthStack.Screen
         name={NAVIGATION_STACK.SPLASH as keyof StackParameterList}
         component={Splash}
