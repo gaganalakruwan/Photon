@@ -22,6 +22,7 @@ import StartingPage4 from '../screens/Starting/Start4';
 
 import App from '../../App';
 import {colors} from '../constants/colors';
+import GettingStartNew from '../screens/GettingStartNew/GettingStartNew';
 const AuthStack = createStackNavigator<StackParameterList>();
 const Tab = createBottomTabNavigator();
 
@@ -61,6 +62,11 @@ const AuthStackNavigator = () => {
       <AuthStack.Screen
         name={NAVIGATION_STACK.START4 as keyof StackParameterList} // Added START2
         component={StartingPage4}
+      />
+
+      <AuthStack.Screen
+        name={NAVIGATION_STACK.GETTINGSTARTNEW as keyof StackParameterList} // Added START2
+        component={GettingStartNew}
       />
     </AuthStack.Navigator>
   );
