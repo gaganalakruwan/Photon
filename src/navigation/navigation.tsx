@@ -13,13 +13,6 @@ import Profile from '../screens/Profile/Profile';
 import IconO from 'react-native-vector-icons/Octicons';
 import IconI from 'react-native-vector-icons/Ionicons';
 import IconSL from 'react-native-vector-icons/SimpleLineIcons';
-
-import StartingPage from '../screens/Starting/Start1';
-import StartingPage1 from '../screens/Starting/Start1';
-import StartingPage2 from '../screens/Starting/Start2';
-import StartingPage3 from '../screens/Starting/Start3';
-import StartingPage4 from '../screens/Starting/Start4';
-
 import App from '../../App';
 import {colors} from '../constants/colors';
 import Settings from '../screens/Settings/Settings';
@@ -35,6 +28,11 @@ import NewProducts from '../screens/NewProduct/NewProduct';
 import MachineryList from '../screens/MachineryList/MachineryList';
 import Machinery from '../screens/Machinery/Machinery';
 import MachineDetails from '../screens/MachineryDetails/MachineryDetails';
+import CheckOut from '../screens/CheckOut/CheckOut';
+import PaymentMethod from '../screens/PaymentMethod/PaymentMethod';
+import AddNewCard from '../screens/AddNewCard/AddNewCard';
+import Payment from '../screens/Payment/Payment';
+import Starting from '../screens/Starting/Starting';
 const AuthStack = createStackNavigator<StackParameterList>();
 const Tab = createBottomTabNavigator();
 const ProfileStack = createStackNavigator();
@@ -49,6 +47,11 @@ const AuthStackNavigator = () => {
         name={NAVIGATION_STACK.SPLASH as keyof StackParameterList}
         component={Splash}
       />
+
+      <AuthStack.Screen
+        name={NAVIGATION_STACK.STARTING as keyof StackParameterList}
+        component={Starting}
+      />
       <AuthStack.Screen
         name={NAVIGATION_STACK.MAIN_AUTH as keyof StackParameterList}
         component={MainAuth}
@@ -57,25 +60,6 @@ const AuthStackNavigator = () => {
       <AuthStack.Screen
         name={NAVIGATION_STACK.MAIN_HOME as keyof StackParameterList}
         component={NewBottomTab}
-      />
-      <AuthStack.Screen
-        name={NAVIGATION_STACK.START1 as keyof StackParameterList}
-        component={StartingPage1}
-      />
-
-      <AuthStack.Screen
-        name={NAVIGATION_STACK.START2 as keyof StackParameterList}
-        component={StartingPage2}
-      />
-
-      <AuthStack.Screen
-        name={NAVIGATION_STACK.START3 as keyof StackParameterList}
-        component={StartingPage3}
-      />
-
-      <AuthStack.Screen
-        name={NAVIGATION_STACK.START4 as keyof StackParameterList}
-        component={StartingPage4}
       />
 
       <AuthStack.Screen
@@ -109,6 +93,26 @@ const AuthStackNavigator = () => {
       <AuthStack.Screen
         name={NAVIGATION_STACK.MACHINE_DETAILS as keyof StackParameterList}
         component={MachineDetails}
+      />
+
+      <AuthStack.Screen
+        name={NAVIGATION_STACK.CHECKOUT as keyof StackParameterList}
+        component={CheckOut}
+      />
+
+      <AuthStack.Screen
+        name={NAVIGATION_STACK.PAYMENT_METHOD as keyof StackParameterList}
+        component={PaymentMethod}
+      />
+
+      <AuthStack.Screen
+        name={NAVIGATION_STACK.ADD_NEW_CARD as keyof StackParameterList}
+        component={AddNewCard}
+      />
+
+      <AuthStack.Screen
+        name={NAVIGATION_STACK.PAYMENT as keyof StackParameterList}
+        component={Payment}
       />
     </AuthStack.Navigator>
   );

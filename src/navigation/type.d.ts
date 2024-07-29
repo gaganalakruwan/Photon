@@ -8,7 +8,11 @@ export declare type StackParameterList = {
   SPARE_PARTS: undefined;
   NEW_PRODUCTS: undefined;
   HELP_CENTER: undefined;
+  STARTING: undefined;
   FAVORITES: undefined;
+  PAYMENT: undefined;
+  PAYMENT_METHOD: undefined;
+  ADD_NEW_CARD: undefined;
   MAIN_HOME: undefined;
   MACHINERY: undefined;
   MACHINERY_LIST: undefined;
@@ -20,6 +24,7 @@ export declare type StackParameterList = {
   CHAT: undefined;
   SETTINGS: undefined;
   NOTIFICATION: undefined;
+  CHECKOUT: undefined;
   SIGN_UP: undefined;
   MAIN_AUTH: undefined;
   PROFILE: undefined;

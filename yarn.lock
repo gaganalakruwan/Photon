@@ -2599,6 +2599,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native/normalize-colors@npm:<0.73.0":
+  version: 0.72.0
+  resolution: "@react-native/normalize-colors@npm:0.72.0"
+  checksum: c8ec577663394a3390eb34c3cd531350521172bcfad7de309ab111e5f9e3d27c966d4a4387f00972302107be3d8cad584c5794ccfa30939aecc56162e4ddbe25
+  languageName: node
+  linkType: hard
+
 "@react-native/typescript-config@npm:0.74.85":
   version: 0.74.85
   resolution: "@react-native/typescript-config@npm:0.74.85"
@@ -3329,6 +3336,7 @@ __metadata:
     prettier: 2.8.8
     react: 18.2.0
     react-native: 0.74.3
+    react-native-credit-card-input: ^1.0.0
     react-native-dynamic-vector-icons: ^1.3.0
     react-native-gesture-handler: ^2.17.1
     react-native-modal: ^13.0.1
@@ -4016,6 +4024,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"card-validator@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "card-validator@npm:10.0.0"
+  dependencies:
+    credit-card-type: ^9.1.0
+  checksum: 94c5226a4c8aaffadc7ddfc2ebdb39d7859f66b4f8b8f5147a4d841d003716ea09d379b747154875e703891cd36b1b23ae2a1ca941c26e40fda182b96f5e7a55
+  languageName: node
+  linkType: hard
+
 "chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
@@ -4382,6 +4399,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"credit-card-type@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "credit-card-type@npm:9.1.0"
+  checksum: 2bdadf3a0b93cd740447020fea8d397c633ee2b292fcc498971c540e7ca97473c4decf23604f93a1aedd59bb8d9249da8cf0b8fbfb1a464bd63610ae814c77aa
+  languageName: node
+  linkType: hard
+
 "cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3":
   version: 7.0.3
   resolution: "cross-spawn@npm:7.0.3"
@@ -4557,6 +4581,17 @@ __metadata:
   version: 2.0.0
   resolution: "depd@npm:2.0.0"
   checksum: abbe19c768c97ee2eed6282d8ce3031126662252c58d711f646921c9623f9052e3e1906443066beec1095832f534e57c523b7333f8e7e0d93051ab6baef5ab3a
+  languageName: node
+  linkType: hard
+
+"deprecated-react-native-prop-types@npm:^4.0.0":
+  version: 4.2.3
+  resolution: "deprecated-react-native-prop-types@npm:4.2.3"
+  dependencies:
+    "@react-native/normalize-colors": <0.73.0
+    invariant: ^2.2.4
+    prop-types: ^15.8.1
+  checksum: 294752f9f15733b66473022d8258a14aac850e4a3db7e802ef189a09871236f5a110f8fe588468ae1df92f24641ae29de05943074dc54da02a5e4262935f913d
   languageName: node
   linkType: hard
 
@@ -8530,12 +8565,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-credit-card-input@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "react-native-credit-card-input@npm:1.0.0"
+  dependencies:
+    card-validator: ^10.0.0
+    react-native-flip-card: ^3.5.7
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 47343b1b00560934d58adf03408c0f19204108eb7a81bd6b4f4f3014970a0c0001af403e8aa96585e2df6d6bbe1421864376311f1b0546179259838d8a5e8215
+  languageName: node
+  linkType: hard
+
 "react-native-dynamic-vector-icons@npm:^1.3.0":
   version: 1.3.0
   resolution: "react-native-dynamic-vector-icons@npm:1.3.0"
   dependencies:
     react-native-vector-icons: ">= 6.x.x"
   checksum: a8fda44f1fc6b3bfcb99cc408938e6ed30f6dfce539d2bb696816a780a89ebff15f6e74fef52a5ee6f64e9614382fe799ef25a4614fd8d8fab65caeda9b4e04c
+  languageName: node
+  linkType: hard
+
+"react-native-flip-card@npm:^3.5.7":
+  version: 3.5.7
+  resolution: "react-native-flip-card@npm:3.5.7"
+  dependencies:
+    deprecated-react-native-prop-types: ^4.0.0
+    prop-types: ^15.8.1
+  checksum: 815126a104f7c0e6eb5fc6504ec627f43e96d411672bedc4ebf2a562a1f782dd55964b6c3abdb3769c4e5c035cbf2940e0c011e5a6d21c53fa6505e8c6952003
   languageName: node
   linkType: hard
 

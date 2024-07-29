@@ -8,4 +8,5 @@ export const colors = {
   searchBack: '#EFEEEE',
   gray: '#708090',
   darkGray: '#2F4F4F',
+  blue: '#007FFF',
 };

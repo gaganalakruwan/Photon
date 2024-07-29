@@ -106,7 +106,7 @@ const Login: React.FC<StackScreenProps<StackParameterList, 'LOGIN'>> = () => {
 
           <ActionButton
             title={'Login'}
-            onPress={() => navigation.navigate('START1' as never)} // Changed 'MAIN_HOME' to 'START1'
+            onPress={() => navigation.navigate('STARTING' as never)} // Changed 'MAIN_HOME' to 'START1'
             containerStyle={{alignSelf: 'center', marginTop: 30, height: 50}}
             textStyle={{fontWeight: '600', fontSize: 16}}
           />

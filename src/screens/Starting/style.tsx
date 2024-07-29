@@ -1,81 +1,60 @@
-// styles.tsx
-import { StyleSheet, Dimensions } from 'react-native';
+import {StyleSheet} from 'react-native';
+import {colors} from '../../constants/colors';
 
-const { width, height } = Dimensions.get('window');
-
-export default StyleSheet.create({
-  background: {
+const styles = StyleSheet.create({
+  mainContainer: {
     flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
+    backgroundColor: colors.white,
   },
-  container: {
-    flex: 1,
+  scrollContainer: {
+    flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  heading: {
-    fontSize: 18,
-    textAlign: 'center',
-    marginBottom: 20,
+  startingContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 20,
   },
-  linesContainer: {
+  mainImage: {
+    width: 320,
+    height: 320,
+    marginBottom: 10,
+  },
+  mainTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    textAlign: 'center',
+    color: colors.black,
+    marginHorizontal: 30,
+  },
+  dashLineContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginBottom: 20,
-    
+    alignItems: 'center',
+    marginVertical: 40,
   },
-  shortLine: {
-    width: 20,
-    height: 2,
-    backgroundColor: '#008CBA',
+  dashLine: {
+    height: 5,
+    backgroundColor: colors.green,
     marginHorizontal: 5,
+    borderRadius: 20,
   },
-  longLine: {
-    width: 40,
-    height: 2,
-    backgroundColor: '#008CBA',
-    marginHorizontal: 5,
-  },
-  actionButton: {
+  submitButton: {
+    backgroundColor: colors.green,
+    padding: 15,
+    borderRadius: 25,
+    width: '70%',
     alignSelf: 'center',
-    marginTop: 50,
+    alignItems: 'center',
+    marginBottom: 40,
+    marginHorizontal: 20,
   },
-  imageContainer: {
-    width: width * 0.6,
-    height: height * 0.3,
-    marginBottom: 20,
+  submitButtonText: {
+    color: colors.white,
+    fontSize: 18,
   },
-  image: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'contain',
-  },
-  safeArea: {
-    flex: 1,
-  },
-  text: {
-    color : 'black' ,
-    fontWeight: 'bold',
-    fontSize : 20,
-    textAlign : 'center'
-  } ,
-
-
-  // container: {
-  //   flexDirection: 'row',
-  //   justifyContent: 'center',
-  //   marginVertical: 20,
-  // },
-  // line: {
-  //   height: 4,
-  //   width: 50,
-  //   backgroundColor: '#008CBA', // Change this to your preferred color
-  //   marginHorizontal: 5,
-  //   borderRadius: 2,
-  // },
-  // shortLine: {
-  //   width: 20,
-  //   backgroundColor: '#008CBA',
-  // },
 });
+
+export default styles;
