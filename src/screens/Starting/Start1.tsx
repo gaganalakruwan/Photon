@@ -1,4 +1,3 @@
-// App.js (or StartingPage.js)
 import React, { useState } from 'react';
 import { View, Text, Image, SafeAreaView } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
