@@ -53,7 +53,7 @@ const Pagination: React.FunctionComponent<PaginationProps> = ({
             {
               color: prevButtonDisabled
                 ? colors.iconGray
-                : colors.white,
+                : colors.black,
             },
           ]}
         />
@@ -88,13 +88,13 @@ const Pagination: React.FunctionComponent<PaginationProps> = ({
         <IconA
           name={'chevron-right'}
           size={getScaleNumber(30)}
-          color={colors.white}
+          color={colors.black}
           style={[
             styles.iconStyle,
             {
               color: nextButtonDisabled
                 ? colors.iconGray
-                : colors.white,
+                : colors.black,
             },
           ]}
         />

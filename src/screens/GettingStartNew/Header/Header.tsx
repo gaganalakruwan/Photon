@@ -16,11 +16,6 @@ const Header: React.FunctionComponent<HeaderProps> = ({
 }) => {
   return (
     <View style={styles.container}>
-      {/* <Image
-        style={styles.logo}
-        resizeMode="contain"
-        source={require('../../../assets/images/logo.png')}
-      /> */}
       <TouchableOpacity style={styles.skipButton} onPress={onPressSkip}>
         <Text style={styles.skipText}>
           {index < slides.length ? 'Skip' : 'Done'}
