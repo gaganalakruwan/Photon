@@ -13,12 +13,13 @@ export default StyleSheet.create({
     marginBottom: 5,
   },
   image: {
-    width: 100,
-    height: 100,
+    width: 140,
+    height: 150,
     borderRadius: 15,
   },
   label: {
     fontSize: 16,
     fontWeight: 'bold',
+    color: '#000000',
   },
 });

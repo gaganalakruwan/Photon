@@ -10,7 +10,12 @@ const sparePartsImage = require('../../assets/spare-parts.png');
 const Categories = () => {
   return (
     <View style={styles.container}>
-      <View style={{flexDirection:'row',justifyContent:'space-between',width:'100%'}}>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          width: '100%',
+        }}>
         <IconButton
           image={machineryImage}
           label="Machinery"
