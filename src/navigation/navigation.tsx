@@ -13,16 +13,10 @@ import Profile from '../screens/Profile/Profile';
 import IconO from 'react-native-vector-icons/Octicons';
 import IconI from 'react-native-vector-icons/Ionicons';
 import IconSL from 'react-native-vector-icons/SimpleLineIcons';
-
 import StartingPage from '../screens/Starting/Start1';
 import StartingPage1 from '../screens/Starting/Start1';
-import StartingPage2 from '../screens/Starting/Start2';
-import StartingPage3 from '../screens/Starting/Start3';
-import StartingPage4 from '../screens/Starting/Start4';
-
 import App from '../../App';
 import {colors} from '../constants/colors';
-import GettingStartNew from '../screens/GettingStartNew/GettingStartNew';
 const AuthStack = createStackNavigator<StackParameterList>();
 const Tab = createBottomTabNavigator();
 
@@ -49,25 +43,7 @@ const AuthStackNavigator = () => {
         component={StartingPage1}
       />
 
-      <AuthStack.Screen
-        name={NAVIGATION_STACK.START2 as keyof StackParameterList} // Added START2
-        component={StartingPage2}
-      />
-
-      <AuthStack.Screen
-        name={NAVIGATION_STACK.START3 as keyof StackParameterList} // Added START1
-        component={StartingPage3}
-      />
-
-      <AuthStack.Screen
-        name={NAVIGATION_STACK.START4 as keyof StackParameterList} // Added START2
-        component={StartingPage4}
-      />
-
-      <AuthStack.Screen
-        name={NAVIGATION_STACK.GETTINGSTARTNEW as keyof StackParameterList} // Added START2
-        component={GettingStartNew}
-      />
+      
     </AuthStack.Navigator>
   );
 };

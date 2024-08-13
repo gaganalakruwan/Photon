@@ -42,7 +42,7 @@ const Login: React.FC<StackScreenProps<StackParameterList, 'LOGIN'>> = () => {
         />
         <ActionButton
           title={'Login'}
-          onPress={() => navigation.navigate('GETTINGSTARTNEW' as never)} // Changed 'MAIN_HOME' to 'START1'
+          onPress={() => navigation.navigate('START1' as never)} 
           containerStyle={{alignSelf: 'center', marginTop: 50}}
         />
       </View>
