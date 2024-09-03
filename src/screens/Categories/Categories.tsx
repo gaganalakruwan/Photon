@@ -50,6 +50,7 @@ const Categories: React.FC<
       }
 
       setCategories(formattedCategories);
+      setCategorieList(res.data);
       dispatch(endLoading());
     } catch (error) {
       console.log(error);

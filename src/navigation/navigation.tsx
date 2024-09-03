@@ -33,6 +33,7 @@ import PaymentMethod from '../screens/PaymentMethod/PaymentMethod';
 import AddNewCard from '../screens/AddNewCard/AddNewCard';
 import Payment from '../screens/Payment/Payment';
 import Starting from '../screens/Starting/Starting';
+import SparePartsDetails from '../screens/SparePartsDetails/SparePartsDetails';
 const AuthStack = createStackNavigator<StackParameterList>();
 const Tab = createBottomTabNavigator();
 const ProfileStack = createStackNavigator();
@@ -164,6 +165,12 @@ const HomeRoute = () => {
       <HomeStack.Screen
         name={NAVIGATION_STACK.SPARE_PARTS_TYPES as keyof StackParameterList}
         component={SparePartsTypes}
+        options={{headerShown: false}}
+      />
+
+      <HomeStack.Screen
+        name={NAVIGATION_STACK.SPARE_PARTS_DETAILS as keyof StackParameterList}
+        component={SparePartsDetails}
         options={{headerShown: false}}
       />
 

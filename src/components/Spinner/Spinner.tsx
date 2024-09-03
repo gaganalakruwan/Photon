@@ -3,6 +3,7 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import {ReduxState} from '../../type';
 import style from './style';
+import {colors} from '../../constants/colors';
 
 type propTypes = {
   color?: String;
@@ -18,7 +19,7 @@ const Spinner = ({color}: propTypes) => {
       <View style={style.container}>
         <View
           style={{
-            backgroundColor: 'black',
+            backgroundColor: 'transparent',
             position: 'absolute',
             flex: 1,
             top: 0,
@@ -27,7 +28,10 @@ const Spinner = ({color}: propTypes) => {
             bottom: 0,
             opacity: 0.3,
           }}></View>
-        <ActivityIndicator size={'large'} color={color ? color : 'white'} />
+        <ActivityIndicator
+          size={'large'}
+          color={color ? color : colors.green}
+        />
         <Text style={style.textContent}>{spinnerMessage}</Text>
         {/* </View> */}
       </View>

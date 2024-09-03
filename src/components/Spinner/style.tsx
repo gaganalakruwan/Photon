@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {getScaleNumber} from '../../utils/refDimention';
+import {colors} from '../../constants/colors';
 
 export default StyleSheet.create({
   container: {
@@ -25,7 +26,7 @@ export default StyleSheet.create({
     fontWeight: '700',
     height: 50,
     top: 20,
-    color: 'white',
+    color: colors.green,
     zIndex: 100,
     textAlign: 'center',
   },

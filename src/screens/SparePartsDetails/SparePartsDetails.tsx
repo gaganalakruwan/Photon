@@ -18,31 +18,24 @@ import {colors} from '../../constants/colors';
 
 const machineImage = require('../../assets/Catagories/machine.png'); // Replace with your actual image source
 
-const MachineDetails: React.FC<
-  StackScreenProps<StackParameterList, 'MACHINE_DETAILS'>
+const SparePartsDetails: React.FC<
+  StackScreenProps<StackParameterList, 'SPARE_PARTS_DETAILS'>
 > = ({navigation, route}) => {
-  const {machineDetails} = route.params;
+  const {sparePartsDetails} = route.params;
 
   const details = {
-    Model: `${machineDetails.model}`,
-    Brand: `${machineDetails.brand}`,
-    'Ejector Valves': `${machineDetails.ejector_valves}`,
-    Compressor: `${machineDetails.compressor}`,
-    Voltage: `${machineDetails.voltage}`,
-    Capacity: `${machineDetails.capacity}`,
-    'Power(KW)': `${machineDetails.power}`,
-    'Weight(Kg)': `${machineDetails.weight}`,
-    'Size(L× W ×H mm)': `${machineDetails.length} * ${machineDetails.width} * ${machineDetails.height}mm`,
-    Cameras: `${machineDetails.cameras}`,
-    Applications: `${machineDetails.applications}`,
+    'Part Name': `${sparePartsDetails.part_name}`,
+    'Part Number': `${sparePartsDetails.part_no}`,
+    'Price (Rs.)': `${sparePartsDetails.price}`,
+    Description: `${sparePartsDetails.comment}`,
   };
 
   return (
     <SafeAreaView style={styles.mainContainer}>
       <Header
         isBack
-        title={machineDetails.model}
-        onBackPress={() => navigation.navigate('MACHINERY_LIST' as never)}
+        title={sparePartsDetails.part_name}
+        onBackPress={() => navigation.navigate('SPARE_PARTS' as never)}
       />
       <ScrollView>
         <View style={styles.outerContainer}>
@@ -71,7 +64,7 @@ const MachineDetails: React.FC<
               </View>
             </View>
           </View>
-          <Text style={styles.machineName}>{machineDetails.model}</Text>
+          <Text style={styles.machineName}>{sparePartsDetails.part_name}</Text>
         </View>
 
         <View style={styles.detailsContainer}>
@@ -91,4 +84,4 @@ const MachineDetails: React.FC<
   );
 };
 
-export default MachineDetails;
+export default SparePartsDetails;

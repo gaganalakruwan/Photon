@@ -1,59 +1,50 @@
-import {View, Text, SafeAreaView} from 'react-native';
-import React from 'react';
+import {View, Text, SafeAreaView, FlatList} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import Header from '../../components/Header/Header';
-import {FlatList} from 'react-native';
 import ItemCard from '../../components/ItemCard/ItemCard';
 import styles from './style';
-import {StackScreenProps} from '@react-navigation/stack';
+import {useDispatch} from 'react-redux';
+import {
+  endLoading,
+  setSpinnerMessage,
+  startLoading,
+} from '../../redux/action/SpinnerAction';
+import {getProductListFunction} from '../../service/api';
+import {setProductList} from '../../redux/action/loadDataActions';
 import {StackParameterList} from '../../navigation/type';
+import {StackScreenProps} from '@react-navigation/stack';
 
 const Machinery: React.FC<
-  StackScreenProps<StackParameterList, 'MACHINERY'>
+  StackScreenProps<StackParameterList, 'MACHINERY_LIST'>
 > = ({navigation}) => {
-  const machines = [
-    {
-      id: 1,
-      imageUrl:
-        'https://ntc.lk/uploads/all/UgjlnojPPwATpVagIt04oO2bwZ8rhV6MiP1Zxte8.jpeg',
+  const dispatch = useDispatch();
 
-      machineName: 'Smart 200',
-      description: '1KW Piston Compressor',
-    },
-    {
-      id: 2,
-      imageUrl:
-        'https://sc04.alicdn.com/kf/H0f013a28765847c395c8daec2f8231f3V.jpg',
-      machineName: 'Smart 500',
-      description: '3.5KW Compressor',
-    },
-    {
-      id: 3,
-      imageUrl:
-        'https://s.alicdn.com/@sc04/kf/H8fb2b894048843dfa3b4479f69d73e90D.jpg_720x720q50.jpg',
-      machineName: '1R-64',
-      description: '5.5KW Piston Compressor',
-    },
+  const [machines, setMachines] = useState([]);
 
-    {
-      id: 4,
-      imageUrl:
-        'https://s.alicdn.com/@sc04/kf/HTB1tdY0bozrK1RjSspmq6AOdFXas.jpg_720x720q50.jpg',
-      machineName: '2R-96',
-      description: '7.5KW Screw-type Compressor',
-    },
+  useEffect(() => {
+    getAllMachineries();
+  }, []);
 
-    {
-      id: 5,
-      imageUrl:
-        'https://image.made-in-china.com/202f0j00kSwhqGeEYRgY/Multi-Function-Mini-CCD-Color-Sorter-for-Rice-Mill-Machines.webp',
-      machineName: '2R-128',
-      description: '7.5KW Screw-type Compressor',
-    },
-  ];
+  const getAllMachineries = async () => {
+    dispatch(setSpinnerMessage('Loading Machineries...'));
+    dispatch(startLoading());
+    var data = new FormData();
+    data.append('recordID', '1');
+    getProductListFunction(data)
+      .then(res => {
+        dispatch(setProductList(res.data));
+        setMachines(res.data); // Set the machine data from the API response
+        dispatch(endLoading());
+      })
+      .catch(error => {
+        console.log(error);
+        dispatch(endLoading());
+      });
+  };
 
-  const handleReadMore = () => {
-    navigation.navigate('MACHINE_DETAILS' as never);
+  const handleReadMore = machineDetails => {
+    navigation.navigate('MACHINE_DETAILS', {machineDetails});
   };
 
   return (
@@ -61,13 +52,13 @@ const Machinery: React.FC<
       <View style={styles.flatListView}>
         <FlatList
           data={machines}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item.idtbl_machinery}
           renderItem={({item}) => (
             <ItemCard
-              imageUrl={item.imageUrl}
-              machineName={item.machineName}
-              description={item.description}
-              onReadMore={handleReadMore}
+              imageUrl={`https://aws.erav.lk/photon/${item.image_path}`}
+              machineName={item.model}
+              description={item.compressor}
+              onReadMore={() => handleReadMore(item)}
             />
           )}
         />

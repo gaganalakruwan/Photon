@@ -10,20 +10,19 @@ import {
   View,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
-import Header from '../../components/Header/Header';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import CustomIcon from '../../components/CustomIcon/CustomIcon';
-import MenuItem from '../../components/MenuItem/MenuItem';
-import {useNavigation} from '@react-navigation/native';
-import {ScrollView} from 'react-native-gesture-handler';
-import {colors} from '../../constants/colors';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import styles from './style';
 import ItemCard from '../../components/ItemCard/ItemCard';
-import {Animated} from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
 import {StackParameterList} from '../../navigation/type';
-
+import {useDispatch} from 'react-redux';
+import {
+  endLoading,
+  setSpinnerMessage,
+  startLoading,
+} from '../../redux/action/SpinnerAction';
+import {getProductListFunction} from '../../service/api';
+import {setProductList} from '../../redux/action/loadDataActions';
 const Tab = createMaterialTopTabNavigator();
 
 const SparePartsTypes: React.FC<
@@ -34,47 +33,46 @@ const SparePartsTypes: React.FC<
     LogBox.ignoreAllLogs();
   }, []);
 
-  const handleReadMore = () => {
-    // Readmore logic
+  const dispatch = useDispatch();
+  const [spareParts, setSpareParts] = useState([]);
+
+  useEffect(() => {
+    getAllMachineries();
+  }, []);
+
+  const getAllMachineries = async () => {
+    dispatch(setSpinnerMessage('Loading Machineries...'));
+    dispatch(startLoading());
+    var data = new FormData();
+    data.append('recordID', '2');
+    getProductListFunction(data)
+      .then(res => {
+        dispatch(setProductList(res.data));
+        setSpareParts(res.data); // Set the machine data from the API response
+        dispatch(endLoading());
+      })
+      .catch(error => {
+        console.log(error);
+        dispatch(endLoading());
+      });
   };
 
-  const machines = [
-    {
-      id: 1,
-      imageUrl:
-        'https://image.made-in-china.com/2f0j00wbYWlNrfYhzG/Rice-Silky-Machine-in-Rice-Mill-Machine-Rice-Polishing-Machine-Rice-Polisher-Water-Mist-Polisher.jpg',
-
-      machineName: 'Spare Part 01',
-      description: 'Description',
-    },
-    {
-      id: 2,
-      imageUrl:
-        'https://static.chinaricemill.com/cloud/knBqlKRlkSjrirqlljr/MLGQ51C-2-Double-Body-Rice-Huller.jpg',
-      machineName: 'Spare Part 02',
-      description: 'Description',
-    },
-    {
-      id: 3,
-      imageUrl:
-        'https://www.richipelletmachine.com/wp-content/uploads/2023/05/MZLH350-grass-pellets-machine-for-sale.jpg',
-      machineName: 'Spare Part 03',
-      description: 'Description',
-    },
-  ];
+  const handleReadMore = sparePartsDetails => {
+    navigation.navigate('SPARE_PARTS_DETAILS', {sparePartsDetails});
+  };
 
   return (
     <SafeAreaView style={styles.mainContainer}>
       <View style={styles.flatListView}>
         <FlatList
-          data={machines}
-          keyExtractor={item => item.id}
+          data={spareParts}
+          keyExtractor={item => item.idtbl_spareparts}
           renderItem={({item}) => (
             <ItemCard
-              imageUrl={item.imageUrl}
-              machineName={item.machineName}
-              description={item.description}
-              onReadMore={handleReadMore}
+              imageUrl={`https://aws.erav.lk/photon/${item.image_path}`}
+              machineName={item.part_name}
+              description={item.comment}
+              onReadMore={() => handleReadMore(item)}
             />
           )}
         />
