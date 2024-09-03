@@ -1,37 +1,61 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {FlatList, View} from 'react-native';
 import styles from './style';
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
 import {StackScreenProps} from '@react-navigation/stack';
 import {StackParameterList} from '../../navigation/type';
+import {
+  endLoading,
+  setSpinnerMessage,
+  startLoading,
+} from '../../redux/action/SpinnerAction';
+import {useDispatch} from 'react-redux';
+import {getCategoryListFunction} from '../../service/api';
+import {setCategorieList} from '../../redux/action/loadDataActions';
 
 const Categories: React.FC<
   StackScreenProps<StackParameterList, 'CATEGORIES'>
 > = ({navigation}) => {
-  const categories = [
-    {
-      id: '1',
-      name: 'Machinery',
-      image: require('../../assets/Catagories/machine.png'),
-      onPress: () => navigation.navigate('MACHINERY_LIST' as never),
-    },
-    {
-      id: '2',
-      name: 'Services',
-      image: require('../../assets/services.png'),
-    },
+  const dispatch = useDispatch();
+  const [categories, setCategories] = useState([]);
 
-    {
-      id: '3',
-      name: 'Spare Parts',
-      image: require('../../assets/Catagories/spare.png'),
-      onPress: () => navigation.navigate('SPARE_PARTS' as never),
-    },
-  ];
+  useEffect(() => {
+    getAllCategories();
+  }, []);
 
-  if (categories.length % 2 !== 0) {
-    categories.push({id: 'placeholder', name: '', image: null});
-  }
+  const getAllCategories = async () => {
+    dispatch(setSpinnerMessage('Loading Categories...'));
+    dispatch(startLoading());
+    try {
+      const res = await getCategoryListFunction();
+      const formattedCategories = res.data.map((category: any) => ({
+        id: category.idtbl_category,
+        name: category.name,
+        image: {uri: `https://aws.erav.lk/photon/${category.image_path}`}, // replace with your actual base URL
+        onPress: () => {
+          if (category.idtbl_category === '1') {
+            navigation.navigate('MACHINERY_LIST' as never);
+          } else if (category.idtbl_category === '2') {
+            navigation.navigate('SPARE_PARTS' as never);
+          } else if (category.idtbl_category === '3') {
+            navigation.navigate('SERVICE_REQUESTS' as never);
+          } else {
+            navigation.navigate('HOME' as never);
+          }
+        },
+      }));
+
+      if (formattedCategories.length % 2 !== 0) {
+        formattedCategories.push({id: 'placeholder', name: '', image: null});
+      }
+
+      setCategories(formattedCategories);
+      dispatch(endLoading());
+    } catch (error) {
+      console.log(error);
+      dispatch(endLoading());
+    }
+  };
 
   return (
     <View style={styles.container}>
