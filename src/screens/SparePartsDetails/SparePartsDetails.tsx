@@ -23,10 +23,13 @@ const SparePartsDetails: React.FC<
 > = ({navigation, route}) => {
   const {sparePartsDetails} = route.params;
 
+  // Format the price with thousand separators
+  const formattedPrice = Number(sparePartsDetails.price).toLocaleString();
+
   const details = {
     'Part Name': `${sparePartsDetails.part_name}`,
     'Part Number': `${sparePartsDetails.part_no}`,
-    'Price (Rs.)': `${sparePartsDetails.price}`,
+    'Price (Rs.)': `${formattedPrice}`,
     Description: `${sparePartsDetails.comment}`,
   };
 

@@ -6,6 +6,8 @@ const axiosInstance = axios;
 
 axiosInstance.defaults.headers.common = {
   'Content-Type': 'multipart/form-data',
+  Authorization:
+    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIzIiwidXNlcm5hbWUiOiJ1c2VyM0BnbWFpbC5jb20iLCJBUElfVElNRSI6MTcyNTk4ODg5MX0.YvVwljo6lrp4KlWBAlgbUIox4LNuhcbX-DZDUAhPkrM',
 };
 
 axiosInstance.defaults.withCredentials = true;

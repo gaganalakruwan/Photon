@@ -22,19 +22,47 @@ import TextInputWithLable from '../../components/TextInputWithLable/TextInputWit
 import {StackScreenProps} from '@react-navigation/stack';
 import {StackParameterList} from '../../navigation/type';
 
+import {
+  endLoading,
+  setSpinnerMessage,
+  startLoading,
+} from '../../redux/action/SpinnerAction';
+import {useDispatch} from 'react-redux';
+import {ViewProfileDetailsFunction} from '../../service/api';
+import {setProfileDetails} from '../../redux/action/loadDataActions';
+
 const Profile: React.FC<StackScreenProps<StackParameterList, 'PROFILE'>> = ({
   navigation,
 }) => {
-  const [isEditing, setIsEditing] = useState(false);
   const [isModalVisible, setModalVisible] = useState(false);
-
   useEffect(() => {
     LogBox.ignoreLogs(['new NativeEventEmitter']); // Ignore log notification by message
     LogBox.ignoreAllLogs();
   }, []);
 
-  const handleEditProfile = () => {
-    setIsEditing(true);
+  const dispatch = useDispatch();
+
+  const [profileData, setProfileData] = useState([]);
+
+  useEffect(() => {
+    getProfileDetails();
+  }, []);
+
+  const getProfileDetails = async () => {
+    dispatch(setSpinnerMessage('Loading Profile Details...'));
+    dispatch(startLoading());
+    var data = new FormData();
+    data.append('userid', '2');
+    ViewProfileDetailsFunction(data)
+      .then(res => {
+        dispatch(setProfileDetails(res.data));
+        setProfileData(res.data);
+        dispatch(endLoading());
+      })
+      .catch(error => {
+        console.log(error);
+        dispatch(endLoading());
+      });
   };
 
   const handleSettings = () => {};
@@ -74,17 +102,21 @@ const Profile: React.FC<StackScreenProps<StackParameterList, 'PROFILE'>> = ({
               />
               <TouchableOpacity
                 style={styles.editIconContainer}
-                onPress={handleEditProfile}>
+                onPress={() => navigation.navigate('EDIT_PROFILE' as never)}>
                 <Icon name="edit" size={24} color="#fff" />
               </TouchableOpacity>
             </View>
-            <Text style={styles.name}>Federica</Text>
+            <Text style={styles.name}>{profileData[0].full_name}</Text>
             <View style={styles.menuContainer}>
               <MenuItem
                 type="MaterialIcons"
                 name="person-outline"
                 title="Profile"
-                onPress={() => navigation.navigate('EDIT_PROFILE' as never)}
+                onPress={() =>
+                  navigation.navigate('EDIT_PROFILE' as never, {
+                    profileData: profileData[0],
+                  })
+                }
               />
               <MenuItem
                 type="MaterialIcons"

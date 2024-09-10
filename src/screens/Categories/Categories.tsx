@@ -28,6 +28,7 @@ const Categories: React.FC<
     dispatch(startLoading());
     try {
       const res = await getCategoryListFunction();
+      console.log(res.data);
       const formattedCategories = res.data.map((category: any) => ({
         id: category.idtbl_category,
         name: category.name,

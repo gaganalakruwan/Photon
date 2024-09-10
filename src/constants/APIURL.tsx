@@ -1,4 +1,4 @@
-export const Root_URL = 'https://aws.erav.lk/photon/Api/';
+export const Root_URL = 'https://aws.erav.lk/photon/';
 export const Login_URL = `${Root_URL}login`;
 export const Category_List = `${Root_URL}Categorylist`;
 export const Product_List = `${Root_URL}Productlist`;

@@ -20,12 +20,14 @@ import {StackParameterList} from '../../navigation/type';
 
 const EditProfile: React.FC<
   StackScreenProps<StackParameterList, 'EDIT_PROFILE'>
-> = ({navigation}) => {
+> = ({navigation, route}) => {
+  const {profileData} = route.params; // Receive the profile data
+
   const [isEditing, setIsEditing] = useState(false);
-  const [fullName, setFullName] = useState('Federica Bodi');
-  const [phoneNumber, setPhoneNumber] = useState('+945521236');
-  const [email, setEmail] = useState('federica98@gmail.com');
-  const [dateOfBirth, setDateOfBirth] = useState('DD/MM/YY');
+  const [fullName, setFullName] = useState(profileData.full_name);
+  const [phoneNumber, setPhoneNumber] = useState(profileData.phone_no);
+  const [email, setEmail] = useState(profileData.email);
+  const [dateOfBirth, setDateOfBirth] = useState(profileData.dob);
 
   useEffect(() => {
     LogBox.ignoreLogs(['new NativeEventEmitter']); // Ignore log notification by message
@@ -59,7 +61,7 @@ const EditProfile: React.FC<
                 <Icon name="edit" size={24} color="#fff" />
               </TouchableOpacity>
             </View>
-            <Text style={styles.name}>Federica</Text>
+            <Text style={styles.name}>{profileData.full_name}</Text>
 
             <View style={styles.editProfileContainer}>
               <TextInputWithLable
@@ -89,7 +91,7 @@ const EditProfile: React.FC<
                 label={'Date of Birth'}
                 value={dateOfBirth}
                 onChangeText={setDateOfBirth}
-                placeHolder="Date of Birth"
+                placeHolder="YY-MM-DD"
               />
 
               <TouchableOpacity
