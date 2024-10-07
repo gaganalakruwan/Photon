@@ -47,12 +47,13 @@ const SparePartsTypes: React.FC<
     data.append('recordID', '2');
     getProductListFunction(data)
       .then(res => {
+        console.log("......>>>>",res?.data);
         dispatch(setProductList(res.data));
         setSpareParts(res.data); // Set the machine data from the API response
         dispatch(endLoading());
       })
       .catch(error => {
-        console.log(error);
+        console.log(".....",error);
         dispatch(endLoading());
       });
   };

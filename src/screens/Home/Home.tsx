@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Icon} from 'react-native-vector-icons/Icon';
 import styles from './style';
 import Header from '../../components/Header/Header';
@@ -19,11 +19,17 @@ import NewProducts from '../NewProduct/NewProduct';
 import {StackScreenProps} from '@react-navigation/stack';
 import {StackParameterList} from '../../navigation/type';
 const Tab = createMaterialTopTabNavigator();
+import {useDispatch} from 'react-redux';
+import { endLoading } from '../../redux/action/SpinnerAction';
 
 const Home: React.FC<StackScreenProps<StackParameterList, 'HOME'>> = ({
   navigation,
 }) => {
   const [searchQuery, setSearchQuery] = React.useState('');
+  const dispatch =useDispatch();
+  useEffect(()=>{
+    dispatch(endLoading());
+  },[])
   return (
     <SafeAreaView style={styles.mainContainer}>
       <Header

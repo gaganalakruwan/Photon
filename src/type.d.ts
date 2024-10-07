@@ -35,8 +35,15 @@ type loadDataType = {
   favoriteList: [];
 };
 
+type authType={
+  token:string;
+  status:boolean;
+  userName:string;
+}
+
 export declare interface ReduxState {
   spinner: SpinnerStateType;
   loadData: loadDataType;
   orderData: orderDataType;
+  authData:authType
 }

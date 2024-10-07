@@ -16,6 +16,8 @@ import httpService from './httpService';
 
 export function loginFunction(data: any) {
   if (data) {
+    console.log("data",data);
+    console.log("data",Login_URL);
     return httpService.post(Login_URL, data);
   }
   return Promise.reject(new Error('Error'));

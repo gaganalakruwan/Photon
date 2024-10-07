@@ -5,11 +5,15 @@ import {StackScreenProps} from '@react-navigation/stack';
 import {StackParameterList} from '../../navigation/type';
 import styles from './style'; // Import styles from style.tsx
 import {colors} from '../../constants/colors';
+import {useDispatch} from 'react-redux';
+import { endLoading } from '../../redux/action/SpinnerAction';
 
 const Splash: React.FC<StackScreenProps<StackParameterList, 'SPLASH'>> = ({
   navigation,
 }) => {
+  const dispatch=useDispatch();
   useEffect(() => {
+    dispatch(endLoading());
     const timer = setTimeout(() => {
       navigation.navigate('MAIN_AUTH');
     }, 2000);

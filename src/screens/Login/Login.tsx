@@ -17,12 +17,15 @@ import {useNavigation} from '@react-navigation/native';
 import {Text} from 'react-native-paper';
 import CustomIcon from '../../components/CustomIcon/CustomIcon';
 import {colors} from '../../constants/colors';
+import {loginFunction} from '../../service/api';
+import {useDispatch, useSelector} from 'react-redux';
+import {setToken, setUsername} from '../../redux/action/authAction';
 
 const Login: React.FC<StackScreenProps<StackParameterList, 'LOGIN'>> = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-
+  const dispatch = useDispatch();
   const handleLogin = () => {
     const email = 'test@example.com';
     const password = 'password';
@@ -35,6 +38,24 @@ const Login: React.FC<StackScreenProps<StackParameterList, 'LOGIN'>> = () => {
   };
 
   const navigation = useNavigation();
+
+  const login = () => {
+    var data = new FormData();
+    data.append('username', email);
+    data.append('password', password);
+    loginFunction(data)
+      .then(res => {
+        console.log(res.data);
+        if (res.data?.status) {
+          dispatch(setToken(res.data.access_token));
+          dispatch(setUsername(email));
+          navigation.navigate('STARTING' as never);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar
@@ -106,7 +127,7 @@ const Login: React.FC<StackScreenProps<StackParameterList, 'LOGIN'>> = () => {
 
           <ActionButton
             title={'Login'}
-            onPress={() => navigation.navigate('STARTING' as never)} // Changed 'MAIN_HOME' to 'START1'
+            onPress={() => login()} // Changed 'MAIN_HOME' to 'START1'
             containerStyle={{alignSelf: 'center', marginTop: 30, height: 50}}
             textStyle={{fontWeight: '600', fontSize: 16}}
           />
