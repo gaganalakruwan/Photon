@@ -21,17 +21,18 @@ import {StackParameterList} from '../../navigation/type';
 const EditProfile: React.FC<
   StackScreenProps<StackParameterList, 'EDIT_PROFILE'>
 > = ({navigation, route}) => {
-  const {profileData} = route.params; // Receive the profile data
+  const {editProfileData} = route.params; // Receive the profile data
 
   const [isEditing, setIsEditing] = useState(false);
-  const [fullName, setFullName] = useState(profileData.full_name);
-  const [phoneNumber, setPhoneNumber] = useState(profileData.phone_no);
-  const [email, setEmail] = useState(profileData.email);
-  const [dateOfBirth, setDateOfBirth] = useState(profileData.dob);
+  const [fullName, setFullName] = useState(editProfileData.full_name);
+  const [phoneNumber, setPhoneNumber] = useState(editProfileData.phone_no);
+  const [email, setEmail] = useState(editProfileData.email);
+  const [dateOfBirth, setDateOfBirth] = useState(editProfileData.dob);
 
   useEffect(() => {
     LogBox.ignoreLogs(['new NativeEventEmitter']); // Ignore log notification by message
     LogBox.ignoreAllLogs();
+    console.log('Profile', editProfileData);
   }, []);
 
   const handleEditProfile = () => {
@@ -61,7 +62,7 @@ const EditProfile: React.FC<
                 <Icon name="edit" size={24} color="#fff" />
               </TouchableOpacity>
             </View>
-            <Text style={styles.name}>{profileData.full_name}</Text>
+            <Text style={styles.name}>{editProfileData.full_name}</Text>
 
             <View style={styles.editProfileContainer}>
               <TextInputWithLable

@@ -10,6 +10,7 @@ export const SET_ORDER_DATA = 'SET_ORDER_DATA';
 export const REMOVE_ALL_ORDER_DETAIL = 'REMOVE_ALL_ORDER_DETAIL';
 export const REMOVE_SELECTED_ORDER = 'REMOVE_SELECTED_ORDER';
 
-export const SET_TOKEN='SET_TOKEN';
-export const SET_STATUS='SET_STATUS';
-export const SET_USERNAME='SET_USERNAME';
+export const SET_TOKEN = 'SET_TOKEN';
+export const SET_STATUS = 'SET_STATUS';
+export const SET_USERNAME = 'SET_USERNAME';
+export const SET_USERID = 'SET_USERID';

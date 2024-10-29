@@ -35,6 +35,7 @@ const MachineDetails: React.FC<
     'Size(L× W ×H mm)': `${machineDetails.length} * ${machineDetails.width} * ${machineDetails.height}mm`,
     Cameras: `${machineDetails.cameras}`,
     Applications: `${machineDetails.applications}`,
+    'Price(Rs.)': `${machineDetails.price}`,
   };
 
   return (
@@ -67,7 +68,10 @@ const MachineDetails: React.FC<
                   />
                 </View>
 
-                <Text style={styles.warrantyText}>5 Year Warranty</Text>
+                <Text style={styles.warrantyText}>
+                  {machineDetails?.warranty ? machineDetails.warranty : '0'}{' '}
+                  Months Warranty
+                </Text>
               </View>
             </View>
           </View>

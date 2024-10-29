@@ -34,6 +34,7 @@ const Machinery: React.FC<
     getProductListFunction(data)
       .then(res => {
         dispatch(setProductList(res.data));
+        console.log('MAchinery', res.data);
         setMachines(res.data); // Set the machine data from the API response
         dispatch(endLoading());
       })

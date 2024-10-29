@@ -12,6 +12,7 @@ import {
 import {useDispatch} from 'react-redux';
 import {getCategoryListFunction} from '../../service/api';
 import {setCategorieList} from '../../redux/action/loadDataActions';
+import Spinner from '../../components/Spinner/Spinner';
 
 const Categories: React.FC<
   StackScreenProps<StackParameterList, 'CATEGORIES'>
@@ -24,8 +25,8 @@ const Categories: React.FC<
   }, []);
 
   const getAllCategories = async () => {
-    dispatch(setSpinnerMessage('Loading Categories...'));
     dispatch(startLoading());
+    dispatch(setSpinnerMessage('Loading Categories...'));
     try {
       const res = await getCategoryListFunction();
       console.log(res.data);

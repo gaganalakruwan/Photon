@@ -1,5 +1,6 @@
 export const Root_URL = 'https://aws.erav.lk/photon/';
 export const Login_URL = `${Root_URL}Login`;
+export const Sign_Up = `${Root_URL}Createuser`;
 export const Category_List = `${Root_URL}Categorylist`;
 export const Product_List = `${Root_URL}Productlist`;
 export const Service_Request_Insert = `${Root_URL}Servicerequestinsert`;

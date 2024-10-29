@@ -19,23 +19,23 @@ import CustomIcon from '../../components/CustomIcon/CustomIcon';
 import {colors} from '../../constants/colors';
 import {loginFunction} from '../../service/api';
 import {useDispatch, useSelector} from 'react-redux';
-import {setToken, setUsername} from '../../redux/action/authAction';
+import {setToken, setUserID, setUsername} from '../../redux/action/authAction';
 
 const Login: React.FC<StackScreenProps<StackParameterList, 'LOGIN'>> = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
-  const handleLogin = () => {
-    const email = 'test@example.com';
-    const password = 'password';
-    if (email === 'test@example.com' && password === 'password') {
-      Alert.alert('Login Successful', 'Welcome to the app!');
-    } else {
-      Alert.alert('Login Failed', 'Invalid email or password.');
-    }
-    console.log('Login button pressed');
-  };
+  // const handleLogin = () => {
+  //   const email = 'test@example.com';
+  //   const password = 'password';
+  //   if (email === 'test@example.com' && password === 'password') {
+  //     Alert.alert('Login Successful', 'Welcome to the app!');
+  //   } else {
+  //     Alert.alert('Login Failed', 'Invalid email or password.');
+  //   }
+  //   console.log('Login button pressed');
+  // };
 
   const navigation = useNavigation();
 
@@ -49,6 +49,7 @@ const Login: React.FC<StackScreenProps<StackParameterList, 'LOGIN'>> = () => {
         if (res.data?.status) {
           dispatch(setToken(res.data.access_token));
           dispatch(setUsername(email));
+          dispatch(setUserID(res.data.user_id));
           navigation.navigate('STARTING' as never);
         }
       })

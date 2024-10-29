@@ -6,6 +6,7 @@ import {
   Manage_Password,
   Product_List,
   Service_Request_Insert,
+  Sign_Up,
   Update_Profile,
   View_Favorite,
   View_Profile,
@@ -16,9 +17,17 @@ import httpService from './httpService';
 
 export function loginFunction(data: any) {
   if (data) {
-    console.log("data",data);
-    console.log("data",Login_URL);
+    console.log('data', data);
+    console.log('data', Login_URL);
     return httpService.post(Login_URL, data);
+  }
+  return Promise.reject(new Error('Error'));
+}
+
+// Sign Up
+export function SignUpFunction(data: any) {
+  if (data) {
+    return httpService.post(Sign_Up, data);
   }
   return Promise.reject(new Error('Error'));
 }

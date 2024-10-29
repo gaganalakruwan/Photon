@@ -30,15 +30,16 @@ import {
 import {useDispatch} from 'react-redux';
 import {ViewProfileDetailsFunction} from '../../service/api';
 import {setProfileDetails} from '../../redux/action/loadDataActions';
+import {store} from '../../redux/Store';
 
 const Profile: React.FC<StackScreenProps<StackParameterList, 'PROFILE'>> = ({
   navigation,
 }) => {
   const [isModalVisible, setModalVisible] = useState(false);
-  useEffect(() => {
-    LogBox.ignoreLogs(['new NativeEventEmitter']); // Ignore log notification by message
-    LogBox.ignoreAllLogs();
-  }, []);
+  // useEffect(() => {
+  //   LogBox.ignoreLogs(['new NativeEventEmitter']); // Ignore log notification by message
+  //   LogBox.ignoreAllLogs();
+  // }, []);
 
   const dispatch = useDispatch();
 
@@ -51,12 +52,17 @@ const Profile: React.FC<StackScreenProps<StackParameterList, 'PROFILE'>> = ({
   const getProfileDetails = async () => {
     dispatch(setSpinnerMessage('Loading Profile Details...'));
     dispatch(startLoading());
+
     var data = new FormData();
-    data.append('userid', '2');
+    const state = store.getState();
+    const userID = state.authData.userID; // Access the token from Redux state
+    data.append('userid', userID);
     ViewProfileDetailsFunction(data)
       .then(res => {
         dispatch(setProfileDetails(res.data));
-        setProfileData(res.data);
+        // console.log('Profile', res.data);
+        setProfileData(res.data[0]);
+        // console.log('Profile2222', profileData.full_name);
         dispatch(endLoading());
       })
       .catch(error => {
@@ -102,11 +108,15 @@ const Profile: React.FC<StackScreenProps<StackParameterList, 'PROFILE'>> = ({
               />
               <TouchableOpacity
                 style={styles.editIconContainer}
-                onPress={() => navigation.navigate('EDIT_PROFILE' as never)}>
+                onPress={() =>
+                  navigation.navigate('EDIT_PROFILE' as never, {
+                    editProfileData: profileData,
+                  })
+                }>
                 <Icon name="edit" size={24} color="#fff" />
               </TouchableOpacity>
             </View>
-            <Text style={styles.name}>{profileData[0].full_name}</Text>
+            <Text style={styles.name}>{profileData.full_name}</Text>
             <View style={styles.menuContainer}>
               <MenuItem
                 type="MaterialIcons"
@@ -114,7 +124,7 @@ const Profile: React.FC<StackScreenProps<StackParameterList, 'PROFILE'>> = ({
                 title="Profile"
                 onPress={() =>
                   navigation.navigate('EDIT_PROFILE' as never, {
-                    profileData: profileData[0],
+                    editProfileData: profileData,
                   })
                 }
               />
